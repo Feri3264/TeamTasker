@@ -13,7 +13,6 @@
     <Folder Include="Task\" />
     <Folder Include="Project\" />
     <Folder Include="Team\" />
-    <Folder Include="Session\" />
   </ItemGroup>
 
   <ItemGroup>
