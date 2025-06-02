@@ -10,7 +10,6 @@
     <Folder Include="ProjectMember\" />
     <Folder Include="TeamMember\" />
     <Folder Include="SessionMember\" />
-    <Folder Include="Task\" />
   </ItemGroup>
 
   <ItemGroup>
