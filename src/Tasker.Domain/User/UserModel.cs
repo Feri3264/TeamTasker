@@ -18,7 +18,28 @@ namespace Tasker.Domain.User
 
         public bool isDelete{ get; private set; }
 
+
         //navigation
+
+        //sessionIds
+        private readonly List<Guid> _sessionIds = new(); //set
+        public IReadOnlyList<Guid> SessionIds => _sessionIds; //get
+
+        //sessionMemberIds
+        private readonly List<Guid> _sessionMemberIds = new(); //set
+        public IReadOnlyList<Guid> SessionMemberIds => _sessionMemberIds; //get
+
+        //TeamMemberIds
+        private readonly List<Guid> _teamMemberIds = new(); //set
+        public IReadOnlyList<Guid> TeamMemberIds => _teamMemberIds; //get
+
+        //ProjectMemberIds
+        private readonly List<Guid> _projectMemberIds = new(); //set
+        public IReadOnlyList<Guid> ProjectMemberIds => _projectMemberIds; //get
+
+        //TaskIds
+        private readonly List<Guid> _taskIds = new(); //set
+        public IReadOnlyList<Guid> TaskIds => _taskIds; //get
 
 
         //ctor
@@ -49,6 +70,11 @@ namespace Tasker.Domain.User
         public void Delete()
         {
             isDelete = !isDelete;
+        }
+
+        public void AddSession(Guid sessionId)
+        {
+            _sessionIds.Add(sessionId);
         }
     }
 }
