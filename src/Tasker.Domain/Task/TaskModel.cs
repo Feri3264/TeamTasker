@@ -17,19 +17,28 @@ namespace Tasker.Domain.Task
 
         public DateTime Deadline { get; private set; }
 
+
         //navigation
+        public Guid AssignedMemberId { get; private set; }
+
+        public Guid ProjectId { get; private set; }
+
 
         //ctor
         public TaskModel(
             string _name,
             string _status,
             string _priority,
+            Guid _assignedMemberId,
+            Guid _projectId,
             DateTime _deadline)
         {
             Id = Guid.NewGuid();
             Name = _name;
             Status = _status;
             Priority = _priority;
+            AssignedMemberId = _assignedMemberId;
+            ProjectId = _projectId;
             Deadline = _deadline;
         }
 
@@ -49,6 +58,11 @@ namespace Tasker.Domain.Task
         public void SetDeadline(DateTime value)
         {
             Deadline = value;
+        }
+
+        public void ChangeAssignedMember(Guid memberId)
+        {
+            AssignedMemberId = memberId;
         }
     }
 }
