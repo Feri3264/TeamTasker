@@ -17,12 +17,12 @@ namespace Tasker.Domain.Project
         public Guid TeamId { get; private set; }
 
 
-        private readonly List<Guid> _taskIds = new();
-        public IReadOnlyList<Guid> TaskIds => _taskIds;
+        private readonly List<Guid> _taskIds = new(); //set
+        public IReadOnlyList<Guid> TaskIds => _taskIds; //get
 
 
-        private readonly List<Guid> _projectMemberIds = new();
-        public IReadOnlyList<Guid> ProjectMwemberIds => _projectMemberIds; 
+        private readonly List<Guid> _projectMemberIds = new(); //set
+        public IReadOnlyList<Guid> ProjectMwemberIds => _projectMemberIds; //get
 
 
         //ctor

@@ -1,6 +1,7 @@
 ﻿using ErrorOr;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Tasker.Domain.User
 
         public string Password { get; private set; }
 
-        public bool isDelete{ get; private set; }
+        public bool IsDelete { get; private set; }
 
 
         //navigation
@@ -41,7 +42,7 @@ namespace Tasker.Domain.User
 
 
         //ctor
-        public UserModel(
+        private UserModel(
             string _name,
             string _email,
             string _password)
@@ -53,42 +54,195 @@ namespace Tasker.Domain.User
         }
 
         //methods
-        public void SetName(string value)
+        public static ErrorOr<UserModel> Create(
+            string _name,
+            string _email,
+            string _password)
         {
+            //password validation
+            var validatePassword = ValidatePassword(_password);
+            if (validatePassword.IsError)
+                return validatePassword.Errors;
+
+            //name validation
+            if (string.IsNullOrWhiteSpace(_name))
+                return UserError.UserNotFound;
+
+            //email validation
+            var verifyEmail = ValidateEmail(_email);
+            if (verifyEmail.IsError)
+                return verifyEmail.Errors;
+
+            return new UserModel(_name, _email, _password);
+        }
+
+        public ErrorOr<Success> SetName(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return UserError.NameNotValid;
+
             Name = value;
+            return Result.Success;
         }
 
-        public void SetEmail(string value)
+        public ErrorOr<Success> SetEmail(string value)
         {
+            var verifyEmail = ValidateEmail(value);
+            if (verifyEmail.IsError)
+                return verifyEmail.Errors;
+
             Email = value;
+            return Result.Success;
         }
 
-        public void SetPassword(string value)
+        public ErrorOr<Success> SetPassword(string value)
         {
+            var validate = ValidatePassword(value);
+            if (validate.IsError)
+                return validate.Errors;
+
             Password = value;
+            return Result.Success;
         }
 
         public void Delete()
         {
-            isDelete = !isDelete;
+            IsDelete = !IsDelete;
         }
 
-        public void AddSession(Guid sessionId)
+        public ErrorOr<Success> AddSession(Guid sessionId)
         {
+            if (_sessionIds.Contains(sessionId))
+                return UserError.SessionAlreadyExists;
+
             _sessionIds.Add(sessionId);
+            return Result.Success;
+        }
+        public ErrorOr<Success> RemoveSession(Guid sessionId)
+        {
+            if (_sessionIds.Count == 0 || !_sessionIds.Contains(sessionId))
+                return UserError.SessionNotExists;
+
+            _sessionIds.Remove(sessionId);
+            return Result.Success;
         }
 
-        public void AddSessionMember(Guid sessionMemberId)
+        public ErrorOr<Success> AddSessionMember(Guid sessionMemberId)
         {
+            if (_sessionMemberIds.Contains(sessionMemberId))
+                return UserError.SessionMemberAlreadyExists;
+
             _sessionMemberIds.Add(sessionMemberId);
+            return Result.Success;
         }
-        public void AddProjectMember(Guid projectMemberId)
+
+        public ErrorOr<Success> RemoveSessionMember(Guid sessionMemberId)
         {
+            if (_sessionMemberIds.Count == 0 || !_sessionMemberIds.Contains(sessionMemberId))
+                return UserError.SessionMemberNotExists;
+
+            _sessionMemberIds.Remove(sessionMemberId);
+            return Result.Success;
+        }
+
+        public ErrorOr<Success> AddTeamMember(Guid teamMemberId)
+        {
+            if (_teamMemberIds.Contains(teamMemberId))
+                return UserError.TeamMemberAlreadyExists;
+
+            _teamMemberIds.Add(teamMemberId);
+            return Result.Success;
+        }
+
+        public ErrorOr<Success> RemoveTeamMember(Guid teamMemberId)
+        {
+            if (_teamMemberIds.Count == 0 || !_teamMemberIds.Contains(teamMemberId))
+                return UserError.TeamMemberNotExists;
+
+            _teamMemberIds.Remove(teamMemberId);
+            return Result.Success;
+        }
+
+        public ErrorOr<Success> AddProjectMember(Guid projectMemberId)
+        {
+            if (_projectMemberIds.Contains(projectMemberId))
+                return UserError.ProjectMemberAlreadyExists;
+
             _projectMemberIds.Add(projectMemberId);
+            return Result.Success;
         }
-        public void AddTask(Guid taskId)
+
+        public ErrorOr<Success> RemoveProjectMember(Guid projectMemberId)
         {
-            _taskIds.Add(taskId);
+            if (_projectMemberIds.Count == 0 || !_projectMemberIds.Contains(projectMemberId))
+                return UserError.ProjectMemberNotExists;
+
+            _projectMemberIds.Remove(projectMemberId);
+            return Result.Success;
         }
+
+        public ErrorOr<Success> AddTask(Guid taskId)
+        {
+            if (_taskIds.Contains(taskId))
+                return UserError.TaskAlreadyAssigned;
+
+            _taskIds.Add(taskId);
+            return Result.Success;
+        }
+
+        public ErrorOr<Success> RemoveTask(Guid taskId)
+        {
+            if (_taskIds.Count == 0 || !_taskIds.Contains(taskId))
+                return UserError.TaskNotAssigned;
+
+            _taskIds.Remove(taskId);
+            return Result.Success;
+        }
+
+        #region Password Validation
+        private static ErrorOr<Success> ValidatePassword(string password)
+        {
+            if (password.Length <= 8)
+            {
+                return UserError.PasswordEightChar;
+            }
+
+            if (!password.Any(c => IsLetter(c)))
+            {
+                return UserError.PasswordContainLetter;
+            }
+
+            if (!password.Any(c => IsDeigit(c)))
+            {
+                return UserError.PasswordContainNumber;
+            }
+
+            return Result.Success;
+        }
+        private static bool IsLetter(char c)
+        {
+            return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+        }
+
+        private static bool IsDeigit(char c)
+        {
+            return (c >= '0' && c <= '9');
+        }
+
+
+        #endregion
+
+        #region Email Validation
+        private static ErrorOr<Success> ValidateEmail(string email)
+        {
+            var verifyEmail = new EmailAddressAttribute();
+            if (!verifyEmail.IsValid(email))
+            {
+                return UserError.EmailNotValid;
+            }
+
+            return Result.Success;
+        }
+        #endregion
     }
 }

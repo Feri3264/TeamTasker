@@ -16,12 +16,12 @@ namespace Tasker.Domain.Session
         public Guid OwnerId { get; private set; }
 
 
-        private readonly List<Guid> _sessionMemberIds = new ();
-        public IReadOnlyList<Guid> SessionMemberIds => _sessionMemberIds;
+        private readonly List<Guid> _sessionMemberIds = new (); //set
+        public IReadOnlyList<Guid> SessionMemberIds => _sessionMemberIds; //get
 
 
-        private readonly List<Guid> _teamIds = new();
-        public IReadOnlyList<Guid> TeamIds => _teamIds;
+        private readonly List<Guid> _teamIds = new(); //set
+        public IReadOnlyList<Guid> TeamIds => _teamIds; //get
 
 
         //ctor
