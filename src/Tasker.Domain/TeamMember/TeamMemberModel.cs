@@ -5,20 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Tasker.Domain.Common;
 
-namespace Tasker.Domain.SessionMember
+namespace Tasker.Domain.TeamMember
 {
-    public class SessionMemberModel : BaseModel
+    public class TeamMemberModel : BaseModel
     {
         public Guid UserId { get; private set; }
 
-        public Guid SessionId { get; private set; }
+        public Guid TeamId { get; private set; }
 
         //ctor
-        public SessionMemberModel(Guid _userid , Guid _sessionid)
+        public TeamMemberModel(Guid _userId , Guid _teamId)
         {
             Id = Guid.NewGuid();
-            UserId = _userid;
-            SessionId = _sessionid;
+            UserId = _userId;
+            TeamId = _teamId;
         }
     }
 }

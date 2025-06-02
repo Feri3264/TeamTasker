@@ -9,7 +9,7 @@ namespace Tasker.Domain.Team
 {
     public class TeamModel : BaseModel
     {
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         //navigation
 

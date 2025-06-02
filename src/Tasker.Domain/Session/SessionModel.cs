@@ -9,7 +9,7 @@ namespace Tasker.Domain.Session
 {
     public class SessionModel : BaseModel
     {
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         //navigation
 

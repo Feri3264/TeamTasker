@@ -9,13 +9,13 @@ namespace Tasker.Domain.Task
 {
     public class TaskModel : BaseModel
     {
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public string Status { get; set; }
+        public string Status { get; private set; }
 
-        public string Priority { get; set; }
+        public string Priority { get; private set; }
 
-        public DateTime Deadline { get; set; }
+        public DateTime Deadline { get; private set; }
 
         //navigation
 

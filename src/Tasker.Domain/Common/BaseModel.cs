@@ -8,6 +8,6 @@ namespace Tasker.Domain.Common
 {
     public class BaseModel
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; protected set; }
     }
 }

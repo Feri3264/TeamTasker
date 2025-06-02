@@ -10,13 +10,13 @@ namespace Tasker.Domain.User
 {
     public class UserModel : BaseModel
     {
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public string Email { get; set; }
+        public string Email { get; private set; }
 
-        public string Password { get; set; }
+        public string Password { get; private set; }
 
-        public bool isDelete{ get; set; }
+        public bool isDelete{ get; private set; }
 
         //navigation
 

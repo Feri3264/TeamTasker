@@ -9,7 +9,7 @@ namespace Tasker.Domain.Project
 {
     public class ProjectModel : BaseModel
     {
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         //navigation
 

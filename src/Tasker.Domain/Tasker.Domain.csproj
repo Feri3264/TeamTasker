@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="ProjectMember\" />
-    <Folder Include="TeamMember\" />
   </ItemGroup>
 
   <ItemGroup>
