@@ -12,7 +12,6 @@
     <Folder Include="SessionMember\" />
     <Folder Include="Task\" />
     <Folder Include="Project\" />
-    <Folder Include="Team\" />
   </ItemGroup>
 
   <ItemGroup>

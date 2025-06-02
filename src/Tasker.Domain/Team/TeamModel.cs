@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Tasker.Domain.Common;
 
-namespace Tasker.Domain.Session
+namespace Tasker.Domain.Team
 {
-    public class SessionModel : BaseModel
+    public class TeamModel : BaseModel
     {
         public string Name { get; set; }
 
         //navigation
 
         //ctor
-        public SessionModel(string _name)
+        public TeamModel(string _name)
         {
             Id = Guid.NewGuid();
             Name = _name;
