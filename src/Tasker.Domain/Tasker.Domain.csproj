@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="ProjectMember\" />
     <Folder Include="TeamMember\" />
-    <Folder Include="SessionMember\" />
   </ItemGroup>
 
   <ItemGroup>
