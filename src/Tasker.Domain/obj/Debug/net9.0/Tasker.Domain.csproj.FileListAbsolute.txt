@@ -1,0 +1,12 @@
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\bin\Debug\net9.0\Tasker.Domain.deps.json
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\bin\Debug\net9.0\Tasker.Domain.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\bin\Debug\net9.0\Tasker.Domain.pdb
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\obj\Debug\net9.0\Tasker.Domain.csproj.AssemblyReference.cache
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\obj\Debug\net9.0\Tasker.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\obj\Debug\net9.0\Tasker.Domain.AssemblyInfoInputs.cache
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\obj\Debug\net9.0\Tasker.Domain.AssemblyInfo.cs
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\obj\Debug\net9.0\Tasker.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\obj\Debug\net9.0\Tasker.Domain.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\obj\Debug\net9.0\refint\Tasker.Domain.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\obj\Debug\net9.0\Tasker.Domain.pdb
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Domain\obj\Debug\net9.0\ref\Tasker.Domain.dll
