@@ -15,7 +15,7 @@ public class LoginHandler
             return UserError.EmailOrPasswordNotCorrect;
 
         if (user.IsDelete)
-            return user
+            return UserError.UserAccountDeleted;
 
         if (request.password != user.Password)
             return UserError.EmailOrPasswordNotCorrect;
