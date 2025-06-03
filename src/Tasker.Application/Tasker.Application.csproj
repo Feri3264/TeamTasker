@@ -10,4 +10,20 @@
     <ProjectReference Include="..\Tasker.Domain\Tasker.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ProjectMember\" />
+    <Folder Include="TeamMember\" />
+    <Folder Include="SessionMember\" />
+    <Folder Include="Task\" />
+    <Folder Include="Project\" />
+    <Folder Include="Team\" />
+    <Folder Include="Session\" />
+    <Folder Include="User\Command\" />
+    <Folder Include="User\Query\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
+  </ItemGroup>
+
 </Project>

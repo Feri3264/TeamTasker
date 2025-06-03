@@ -9,7 +9,5 @@ namespace Tasker.Domain.ProjectMember
 {
     public class ProjectMemberError
     {
-        public Error MemberNotFound = Error.NotFound
-            (code: "member.not.found", description: "Member with this Id Not Found in The Project");
     }
 }

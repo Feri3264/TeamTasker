@@ -9,7 +9,5 @@ namespace Tasker.Domain.TeamMember
 {
     public class TeamMemberError
     {
-        public Error MemberNotFound = Error.NotFound
-            (code: "member.not.found" , description: "Member with this Id Not Found in The Team");
     }
 }
