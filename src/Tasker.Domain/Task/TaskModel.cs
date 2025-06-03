@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using ErrorOr;
 using Tasker.Domain.Common;
+using Tasker.Domain.Project;
 
 namespace Tasker.Domain.Task
 {
@@ -25,7 +28,7 @@ namespace Tasker.Domain.Task
 
 
         //ctor
-        public TaskModel(
+        private TaskModel(
             string _name,
             string _status,
             string _priority,
@@ -43,9 +46,29 @@ namespace Tasker.Domain.Task
         }
 
         //methods
-        public void SetName(string value)
+        public ErrorOr<TaskModel> Create(
+            string _name,
+            string _status,
+            string _priority,
+            Guid _assignedMemberId,
+            Guid _projectId,
+            DateTime _deadline)
         {
+            if (string.IsNullOrWhiteSpace(_name))
+                return ProjectError.NameNotValid;
+
+            if (_deadline < DateTime.UtcNow)
+                return TaskError.DeadlineNotValid;
+
+            return new TaskModel(_name , _status , _priority, _assignedMemberId, _projectId, _deadline);
+        }
+        public ErrorOr<Success> SetName(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return ProjectError.NameNotValid;
+
             Name = value;
+            return Result.Success;
         }
         public void SetStatus(string value)
         {
@@ -55,9 +78,13 @@ namespace Tasker.Domain.Task
         {
             Priority = value;
         }
-        public void SetDeadline(DateTime value)
+        public ErrorOr<Success> SetDeadline(DateTime value)
         {
+            if (value < DateTime.UtcNow)
+                return TaskError.DeadlineNotValid;
+
             Deadline = value;
+            return Result.Success;
         }
 
         public void ChangeAssignedMember(Guid memberId)

@@ -10,7 +10,13 @@ namespace Tasker.Domain.Task
 {
     public class TaskError
     {
-        public Error TaskNotFound = Error.NotFound
+        public static Error TaskNotFound = Error.NotFound
             (code: "task.not.found" , description: "Task Not Found");
+
+        public static Error NameNotValid = Error.Validation
+            (code: "name.not.valid", description: "Entered Name is Not Valid");
+
+        public static Error DeadlineNotValid = Error.Validation
+            (code: "deadline.not.valid", description: "Entered Deadline is Not Valid");
     }
 }
