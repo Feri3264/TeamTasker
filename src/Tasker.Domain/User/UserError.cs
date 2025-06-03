@@ -12,6 +12,9 @@ namespace Tasker.Domain.User
         public static Error UserNotFound = Error.NotFound
             (code: "user.not.found" , description: "User Not Found");
 
+        public static Error UserAccountDeleted = Error.NotFound
+            (code: "user.account.deleted", description: "User Account Has Been Deleted");
+
         public static Error NameNotValid = Error.Validation
             (code: "name.not.valid", description: "Entered Name is Not Valid");
 

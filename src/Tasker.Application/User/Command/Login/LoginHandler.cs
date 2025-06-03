@@ -14,6 +14,9 @@ public class LoginHandler
         if (user is null)
             return UserError.EmailOrPasswordNotCorrect;
 
+        if (user.IsDelete)
+            return user
+
         if (request.password != user.Password)
             return UserError.EmailOrPasswordNotCorrect;
 
