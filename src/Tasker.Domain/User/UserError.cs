@@ -18,6 +18,9 @@ namespace Tasker.Domain.User
         public static Error EmailNotValid = Error.Validation
             (code: "email.not.valid", description: "Entered Email is Not Valid");
 
+        public static Error EmailAlreadyTaken = Error.Validation
+            (code: "email.already.taken", description: "Email is Already Taken");
+
         public static Error SessionAlreadyExists = Error.Validation
             (code: "session.already.exists", description: "User Already Has This Session");
 

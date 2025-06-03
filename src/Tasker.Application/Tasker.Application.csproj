@@ -18,7 +18,6 @@
     <Folder Include="Project\" />
     <Folder Include="Team\" />
     <Folder Include="Session\" />
-    <Folder Include="User\Command\" />
     <Folder Include="User\Query\" />
   </ItemGroup>
 
