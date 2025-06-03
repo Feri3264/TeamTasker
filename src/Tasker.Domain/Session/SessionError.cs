@@ -9,7 +9,7 @@ namespace Tasker.Domain.Session
 {
     public class SessionError
     {
-        public Error SessionNotFound = Error.NotFound
+        public static Error SessionNotFound = Error.NotFound
             (code: "session.not.found", description: "Session Not Found");
 
         public static Error NameNotValid = Error.Validation
