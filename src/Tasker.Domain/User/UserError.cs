@@ -59,5 +59,8 @@ namespace Tasker.Domain.User
 
         public static Error PasswordContainNumber = Error.Validation
             (code: "password.contain.number", description: "Password must contain at least one number");
+
+        public static Error EmailOrPasswordNotCorrect = Error.Validation
+            (code: "emailOrPassword.not.correct", description: "Email Or Password Is Not Correct");
     }
 }

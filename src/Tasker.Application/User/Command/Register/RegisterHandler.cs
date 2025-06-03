@@ -15,7 +15,7 @@ public class RegisterHandler
         if (newUser.IsError)
             return newUser.Errors;
 
-        if (await userRepository.IsEmailExists(request.email))
+        if (await userRepository.GetByEmailAsync(request.email) is null)
             return UserError.EmailAlreadyTaken;
 
         await userRepository.AddAsync(newUser.Value);

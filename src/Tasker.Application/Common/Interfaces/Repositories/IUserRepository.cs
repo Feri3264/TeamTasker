@@ -6,7 +6,7 @@ public interface IUserRepository
 {
     Task<UserModel> GetByIdAsync(Guid id);
 
-    Task<bool> IsEmailExists(string email);
+    Task<UserModel> GetByEmailAsync(string email);
 
     Task AddAsync(UserModel model);
 
