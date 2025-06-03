@@ -4,7 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using ErrorOr;
 using Tasker.Domain.Common;
+using Tasker.Domain.Team;
 
 namespace Tasker.Domain.Project
 {
@@ -26,7 +29,7 @@ namespace Tasker.Domain.Project
 
 
         //ctor
-        public ProjectModel(string _name, Guid teamId)
+        private ProjectModel(string _name, Guid teamId)
         {
             Id = Guid.NewGuid();
             Name = _name;
@@ -34,19 +37,57 @@ namespace Tasker.Domain.Project
         }
 
         //methods
-        public void SetName(string value)
+        public ErrorOr<ProjectModel> Create(string _name, Guid teamId)
         {
+            if (string.IsNullOrWhiteSpace(_name))
+                return ProjectError.NameNotValid;
+
+            return new ProjectModel(_name, teamId);
+        }
+
+        public ErrorOr<Success> SetName(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return ProjectError.NameNotValid;
+
             Name = value;
+            return Result.Success;
         }
 
-        public void AddProjectMember(Guid projectMemberId)
+        public ErrorOr<Success> AddProjectMember(Guid projectMemberId)
         {
+            if (_projectMemberIds.Contains(projectMemberId))
+                return ProjectError.ProjectMemberAlreadyExists;
+
             _projectMemberIds.Add(projectMemberId);
+            return Result.Success;
         }
 
-        public void AddTask(Guid taskId)
+        public ErrorOr<Success> RemoveProjectMember(Guid projectMemberId)
         {
+            if (_projectMemberIds.Count == 0 || !_projectMemberIds.Contains(projectMemberId))
+                return ProjectError.ProjectMemberNotExists;
+
+            _projectMemberIds.Remove(projectMemberId);
+            return Result.Success;
+        }
+
+        public ErrorOr<Success> AddTask(Guid taskId)
+        {
+            if (_taskIds.Contains(taskId))
+                return ProjectError.TaskAlreadyExists;
+
             _taskIds.Add(taskId);
+            return Result.Success;
+        }
+
+        public ErrorOr<Success> RemoveTask(Guid taskId)
+        {
+            if (_taskIds.Count == 0 || !_taskIds.Contains(taskId))
+                return ProjectError.TaskNotExists;
+
+            _taskIds.Remove(taskId);
+            return Result.Success;
         }
     }
 }
