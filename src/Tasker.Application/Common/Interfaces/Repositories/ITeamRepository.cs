@@ -8,6 +8,8 @@ public interface ITeamRepository
 
     Task AddAsync(TeamModel model);
 
+    void Update(TeamModel model);
+
     void Delete(TeamModel model);
 
     Task SaveAsync();
