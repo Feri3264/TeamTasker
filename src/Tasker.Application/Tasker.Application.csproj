@@ -12,12 +12,12 @@
 
   <ItemGroup>
     <Folder Include="ProjectMember\" />
+    <Folder Include="Session\Query\" />
     <Folder Include="TeamMember\" />
     <Folder Include="SessionMember\" />
     <Folder Include="Task\" />
     <Folder Include="Project\" />
     <Folder Include="Team\" />
-    <Folder Include="Session\" />
   </ItemGroup>
 
   <ItemGroup>

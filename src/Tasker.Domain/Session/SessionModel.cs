@@ -35,7 +35,7 @@ namespace Tasker.Domain.Session
         }
 
         //methods
-        public ErrorOr<SessionModel> Create(string _name, Guid _ownerId)
+        public static ErrorOr<SessionModel> Create(string _name, Guid _ownerId)
         {
             if (string.IsNullOrWhiteSpace(_name))
                 return SessionError.NameNotValid;
