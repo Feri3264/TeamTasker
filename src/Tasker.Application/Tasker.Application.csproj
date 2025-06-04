@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="ProjectMember\" />
+    <Folder Include="Session\Command\Delete\" />
     <Folder Include="Session\Query\" />
     <Folder Include="TeamMember\" />
     <Folder Include="SessionMember\" />

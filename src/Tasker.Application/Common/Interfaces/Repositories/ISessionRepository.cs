@@ -8,5 +8,7 @@ public interface ISessionRepository
 
     Task AddAsync(SessionModel model);
 
+    void Delete(SessionModel model);
+
     Task SaveAsync();
 }
