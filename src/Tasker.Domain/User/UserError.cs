@@ -65,5 +65,8 @@ namespace Tasker.Domain.User
 
         public static Error EmailOrPasswordNotCorrect = Error.Validation
             (code: "emailOrPassword.not.correct", description: "Email Or Password Is Not Correct");
+
+        public static Error oldPasswordNotCorrect = Error.Validation
+            (code: "oldPassword.not.correct", description: "Your Old Password Is Not Correct");
     }
 }

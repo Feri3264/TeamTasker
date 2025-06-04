@@ -12,7 +12,7 @@ public class UserChangeNameHandler
     {
         var user = await userRepository.GetByIdAsync(request.id);
 
-        if (user is null)
+        if (user is null || user.IsDelete)
             return UserError.UserNotFound;
 
         var name = user.SetName(request.name);

@@ -11,7 +11,7 @@ public class SearchUserByEmailHandler
     public async Task<ErrorOr<UserModel>> Handle(SearchUserByEmailQuery request, CancellationToken cancellationToken)
     {
         var user = await userRepository.GetByEmailAsync(request.email);
-        if (user is null)
+        if (user is null || user.IsDelete)
             return UserError.UserNotFound;
 
         return user;
