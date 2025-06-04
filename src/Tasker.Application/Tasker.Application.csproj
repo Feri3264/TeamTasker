@@ -17,7 +17,7 @@
     <Folder Include="SessionMember\" />
     <Folder Include="Task\" />
     <Folder Include="Project\" />
-    <Folder Include="Team\" />
+    <Folder Include="Team\Query\" />
   </ItemGroup>
 
   <ItemGroup>

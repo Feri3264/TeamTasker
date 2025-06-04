@@ -36,7 +36,7 @@ namespace Tasker.Domain.Team
         }
 
         //methods
-        public ErrorOr<TeamModel> Create(string _name , Guid _sessionId)
+        public static ErrorOr<TeamModel> Create(string _name , Guid _sessionId)
         {
             if (string.IsNullOrWhiteSpace(_name))
                 return TeamError.NameNotValid;
