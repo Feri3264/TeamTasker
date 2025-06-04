@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tasker.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9083031503dc1b752c686ec82bc3465039ce121d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cacac83acd559cb83a7ecb3f0c344fd21d559f79")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tasker.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tasker.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
