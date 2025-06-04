@@ -3,12 +3,12 @@ using MediatR;
 using Tasker.Application.Common.Interfaces.Repositories;
 using Tasker.Domain.User;
 
-namespace Tasker.Application.User.Query.GetUserProfile;
+namespace Tasker.Application.User.Query.GetMyProfile;
 
-public class GetUserProfileHandler
-    (IUserRepository userRepository) : IRequestHandler<GetUserProfileQuery , ErrorOr<UserModel>>
+public class GetMyProfileHandler
+    (IUserRepository userRepository) : IRequestHandler<GetMyProfileQuery , ErrorOr<UserModel>>
 {
-    public async Task<ErrorOr<UserModel>> Handle(GetUserProfileQuery request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<UserModel>> Handle(GetMyProfileQuery request, CancellationToken cancellationToken)
     {
         var user = await userRepository.GetByIdAsync(request.id);
 
