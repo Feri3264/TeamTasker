@@ -4,9 +4,11 @@ namespace Tasker.Application.Common.Interfaces.Repositories;
 
 public interface ISessionMemberRepository
 {
-    Task<SessionMemberModel> GetByIdAsync(Guid id);
+    Task<SessionMemberModel> GetSessionMemberAsync(Guid useId, Guid sessionId);
 
     Task AddAsync(SessionMemberModel model);
+
+    void Delete(SessionMemberModel model);
 
     Task SaveAsync();
 }
