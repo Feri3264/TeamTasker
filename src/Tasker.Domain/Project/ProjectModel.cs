@@ -37,7 +37,7 @@ namespace Tasker.Domain.Project
         }
 
         //methods
-        public ErrorOr<ProjectModel> Create(string _name, Guid teamId)
+        public static ErrorOr<ProjectModel> Create(string _name, Guid teamId)
         {
             if (string.IsNullOrWhiteSpace(_name))
                 return ProjectError.NameNotValid;
