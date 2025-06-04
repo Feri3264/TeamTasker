@@ -1,5 +1,4 @@
 ﻿using Tasker.Domain.Project;
-using Tasker.Domain.Team;
 
 namespace Tasker.Application.Common.Interfaces.Repositories;
 
