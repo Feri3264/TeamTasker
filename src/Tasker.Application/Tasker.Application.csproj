@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="ProjectMember\Command\Create\" />
-    <Folder Include="ProjectMember\Command\Delete\" />
     <Folder Include="ProjectMember\Query\GetProjectMembers\" />
     <Folder Include="Project\Command\Create\" />
     <Folder Include="Project\Command\Delete\" />

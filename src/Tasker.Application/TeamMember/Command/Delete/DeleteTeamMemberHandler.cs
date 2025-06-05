@@ -30,7 +30,7 @@ public class DeleteTeamMemberHandler
             return TeamMemberError.MembershipNotFound;
 
         teamMemberRepository.Delete(membership);
-        teamMemberRepository.SaveAsync();
+        await teamMemberRepository.SaveAsync();
         return Result.Success;
     }
 }
