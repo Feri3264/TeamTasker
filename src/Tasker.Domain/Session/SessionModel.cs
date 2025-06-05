@@ -17,8 +17,10 @@ namespace Tasker.Domain.Session
         //navigation
         public Guid OwnerId { get; private set; }
 
+
         private readonly List<Guid> _editors = new(); //set
         public IReadOnlyList<Guid> Editors => _editors; //get
+        
 
         private readonly List<Guid> _teamIds = new(); //set
         public IReadOnlyList<Guid> TeamIds => _teamIds; //get
@@ -47,6 +49,24 @@ namespace Tasker.Domain.Session
                 return SessionError.NameNotValid;
 
             Name = value;
+            return Result.Success;
+        }
+
+        public ErrorOr<Success> AddEditor(Guid id)
+        {
+            if (_editors.Contains(id))
+                return SessionError.EditorAlreadyExists;
+
+            _editors.Add(id);
+            return Result.Success;
+        }
+
+        public ErrorOr<Success> RemoveEditor(Guid id)
+        {
+            if (_editors.Count == 0 || !_editors.Contains(id))
+                return SessionError.EditorNotExists;
+
+            _editors.Remove(id);
             return Result.Success;
         }
 
