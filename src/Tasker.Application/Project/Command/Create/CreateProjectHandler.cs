@@ -12,7 +12,7 @@ public class CreateProjectHandler
 {
     public async Task<ErrorOr<ProjectModel>> Handle(CreateProjectCommand request, CancellationToken cancellationToken)
     {
-        var newProject = ProjectModel.Create(request.name, request.teamId);
+        var newProject = ProjectModel.Create(request.name, request.teamId , request.leadId);
 
         if (newProject.IsError)
             return newProject.Errors;

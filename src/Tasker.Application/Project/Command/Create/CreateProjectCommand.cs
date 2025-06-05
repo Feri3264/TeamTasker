@@ -6,4 +6,4 @@ using Tasker.Domain.Team;
 namespace Tasker.Application.Project.Command.Create;
 
 public record CreateProjectCommand
-    (string name, Guid teamId) : IRequest<ErrorOr<ProjectModel>>;
+    (string name, Guid teamId , Guid leadId) : IRequest<ErrorOr<ProjectModel>>;

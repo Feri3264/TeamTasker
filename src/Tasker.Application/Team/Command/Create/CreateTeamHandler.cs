@@ -10,7 +10,7 @@ public class CreateTeamHandler
 {
     public async Task<ErrorOr<TeamModel>> Handle(CreateTeamCommand request, CancellationToken cancellationToken)
     {
-        var newTeam = TeamModel.Create(request.name, request.sessionId);
+        var newTeam = TeamModel.Create(request.name, request.sessionId , request.leadId);
 
         if (newTeam.IsError)
             return newTeam.Errors;

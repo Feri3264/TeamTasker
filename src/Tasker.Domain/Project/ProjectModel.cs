@@ -26,25 +26,22 @@ namespace Tasker.Domain.Project
         public IReadOnlyList<Guid> TaskIds => _taskIds; //get
 
 
-        private readonly List<Guid> _projectMemberIds = new(); //set
-        public IReadOnlyList<Guid> ProjectMwemberIds => _projectMemberIds; //get
-
-
         //ctor
-        private ProjectModel(string _name, Guid teamId)
+        private ProjectModel(string _name, Guid teamId , Guid _leadId)
         {
             Id = Guid.NewGuid();
             Name = _name;
             TeamId = teamId;
+            LeadId = _leadId;
         }
 
         //methods
-        public static ErrorOr<ProjectModel> Create(string _name, Guid teamId)
+        public static ErrorOr<ProjectModel> Create(string _name, Guid _teamId , Guid _leadId)
         {
             if (string.IsNullOrWhiteSpace(_name))
                 return ProjectError.NameNotValid;
 
-            return new ProjectModel(_name, teamId);
+            return new ProjectModel(_name, _teamId , _leadId);
         }
 
         public ErrorOr<Success> SetName(string value)
@@ -59,24 +56,6 @@ namespace Tasker.Domain.Project
         public void ChangeProjectLead(Guid id)
         {
             LeadId = id;
-        }
-
-        public ErrorOr<Success> AddProjectMember(Guid projectMemberId)
-        {
-            if (_projectMemberIds.Contains(projectMemberId))
-                return ProjectError.ProjectMemberAlreadyExists;
-
-            _projectMemberIds.Add(projectMemberId);
-            return Result.Success;
-        }
-
-        public ErrorOr<Success> RemoveProjectMember(Guid projectMemberId)
-        {
-            if (_projectMemberIds.Count == 0 || !_projectMemberIds.Contains(projectMemberId))
-                return ProjectError.ProjectMemberNotExists;
-
-            _projectMemberIds.Remove(projectMemberId);
-            return Result.Success;
         }
 
         public ErrorOr<Success> AddTask(Guid taskId)

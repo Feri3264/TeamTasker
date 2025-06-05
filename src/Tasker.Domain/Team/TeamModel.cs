@@ -26,7 +26,7 @@ namespace Tasker.Domain.Team
 
 
         //ctor
-        private TeamModel(string _name , Guid _sessionId)
+        private TeamModel(string _name , Guid _sessionId , Guid _leadId)
         {
             Id = Guid.NewGuid();
             Name = _name;
@@ -34,12 +34,12 @@ namespace Tasker.Domain.Team
         }
 
         //methods
-        public static ErrorOr<TeamModel> Create(string _name , Guid _sessionId)
+        public static ErrorOr<TeamModel> Create(string _name , Guid _sessionId, Guid _leadId)
         {
             if (string.IsNullOrWhiteSpace(_name))
                 return TeamError.NameNotValid;
 
-            return new TeamModel(_name , _sessionId);
+            return new TeamModel(_name , _sessionId , _leadId);
         }
         public ErrorOr<Success> SetName(string value)
         {
@@ -53,24 +53,6 @@ namespace Tasker.Domain.Team
         public void ChangeTeamLead(Guid id)
         {
             LeadId = id;
-        }
-
-        public ErrorOr<Success> AddTeamMember(Guid teamMemberId)
-        {
-            if (_teamMemberIds.Contains(teamMemberId))
-                return TeamError.TeamMemberAlreadyExists;
-
-            _teamMemberIds.Add(teamMemberId);
-            return Result.Success;
-        }
-
-        public ErrorOr<Success> RemoveTeamMember(Guid teamMemberId)
-        {
-            if (_teamMemberIds.Count == 0 || !_teamMemberIds.Contains(teamMemberId))
-                return TeamError.TeamMemberNotExists;
-
-            _teamMemberIds.Remove(teamMemberId);
-            return Result.Success;
         }
 
         public ErrorOr<Success> AddProject(Guid projectId)

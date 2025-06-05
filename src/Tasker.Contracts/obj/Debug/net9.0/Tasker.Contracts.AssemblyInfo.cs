@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tasker.Contracts")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6550890bf5346b4dee5e6a82b65a467752351fa3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd97d0e3214451f2cabe78cb4bc0d682fcc6bf47")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tasker.Contracts")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tasker.Contracts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
