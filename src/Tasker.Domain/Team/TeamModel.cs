@@ -25,10 +25,6 @@ namespace Tasker.Domain.Team
         public IReadOnlyList<Guid> ProjectIds => _projectIds; //get
 
 
-        private readonly List<Guid> _teamMemberIds = new(); //set
-        public IReadOnlyList<Guid> TeamMemberIds => _teamMemberIds; //get
-
-
         //ctor
         private TeamModel(string _name , Guid _sessionId)
         {
