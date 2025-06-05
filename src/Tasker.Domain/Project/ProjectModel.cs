@@ -15,6 +15,8 @@ namespace Tasker.Domain.Project
     {
         public string Name { get; private set; }
 
+        public Guid LeadId { get; set; }
+
 
         //navigation
         public Guid TeamId { get; private set; }
@@ -52,6 +54,11 @@ namespace Tasker.Domain.Project
 
             Name = value;
             return Result.Success;
+        }
+
+        public void ChangeProjectLead(Guid id)
+        {
+            LeadId = id;
         }
 
         public ErrorOr<Success> AddProjectMember(Guid projectMemberId)

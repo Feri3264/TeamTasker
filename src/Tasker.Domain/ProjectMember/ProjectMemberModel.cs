@@ -13,12 +13,15 @@ namespace Tasker.Domain.ProjectMember
 
         public Guid ProjectId { get; private set; }
 
+        public bool IsProjectLead { get; set; }
+
         //ctor
-        public ProjectMemberModel(Guid _userId , Guid _projectId)
+        public ProjectMemberModel(Guid _userId , Guid _projectId, bool _isProjectLead)
         {
             Id = Guid.NewGuid();
             UserId = _userId;
             ProjectId = _projectId;
+            IsProjectLead = _isProjectLead;
         }
     }
 }
