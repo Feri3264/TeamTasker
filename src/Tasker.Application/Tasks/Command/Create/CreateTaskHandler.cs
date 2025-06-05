@@ -14,7 +14,7 @@ public class CreateTaskHandler
         var newTask = TaskModel.Create(
             request.name,
             request.status.ToString(),
-            request.priority,
+            request.priority.ToString(),
             request.assignedMemberId,
             request.projectId,
             request.deadline);

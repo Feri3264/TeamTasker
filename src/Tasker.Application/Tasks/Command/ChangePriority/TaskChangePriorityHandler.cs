@@ -15,7 +15,7 @@ public class TaskChangePriorityHandler
         if (task is null)
             return TaskError.TaskNotFound;
 
-        task.SetPriority(request.priority);
+        task.SetPriority(request.priority.ToString());
 
         taskRepository.Update(task);
         await taskRepository.SaveAsync();
