@@ -8,7 +8,8 @@ namespace Tasker.Application.Team.Query.GetSessionTeams;
 
 public class GetSessionTeamsHandler
     (ISessionRepository sessionRepository,
-        ITeamRepository teamRepository) : IRequestHandler<GetSessionTeamsQuery , ErrorOr<List<TeamModel>>>
+        ITeamRepository teamRepository,
+        ITeamMemberRepository teamMemberRepository) : IRequestHandler<GetSessionTeamsQuery , ErrorOr<List<TeamModel>>>
 {
     public async Task<ErrorOr<List<TeamModel>>> Handle(GetSessionTeamsQuery request, CancellationToken cancellationToken)
     {
@@ -17,7 +18,17 @@ public class GetSessionTeamsHandler
         if (session is null)
             return SessionError.SessionNotFound;
 
-        var teams = await teamRepository.GetByIdsAsync(session.TeamIds);
+        var teams = new List<TeamModel>();
+
+        if (session.OwnerId == request.userId || session.Editors.Contains(request.userId))
+        {
+            teams = await teamRepository.GetByIdsAsync(session.TeamIds);
+        }
+        else
+        {
+            teams = await teamMemberRepository
+                .GetTeamByMemberAsync(session.TeamIds, request.userId);
+        }
 
         if (teams is null)
             return TeamError.TeamNotFound;

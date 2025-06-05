@@ -28,10 +28,13 @@ namespace Tasker.Application.Session.Query.GetMySessions
 }
 
 
-//public async Task<List<Project>> GetProjectsByIdsAsync(IEnumerable<Guid> ids)
-//{
-//    return await _dbContext.Projects
-//        .Where(p => ids.Contains(p.Id))
-//        .ToListAsync();
-//}
+//var sessionIds = await _context.SessionMembers
+//    .Where(sm => sm.UserId == userId)
+//    .Select(sm => sm.SessionId)
+//    .ToListAsync();
+
+//var sessions = await _context.Sessions
+//    .Where(s => sessionIds.Contains(s.Id))
+//    .ToListAsync();
+
 

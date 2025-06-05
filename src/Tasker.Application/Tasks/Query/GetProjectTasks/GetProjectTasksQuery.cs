@@ -4,4 +4,4 @@ using Tasker.Domain.Tasks;
 
 namespace Tasker.Application.Tasks.Query.GetProjectTasks;
 
-public record GetProjectTasksQuery(Guid projectId) : IRequest<ErrorOr<List<TaskModel>>>;
+public record GetProjectTasksQuery(Guid projectId , Guid userId) : IRequest<ErrorOr<List<TaskModel>>>;

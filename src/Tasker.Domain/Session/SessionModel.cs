@@ -17,6 +17,8 @@ namespace Tasker.Domain.Session
         //navigation
         public Guid OwnerId { get; private set; }
 
+        private readonly List<Guid> _editors = new(); //set
+        public IReadOnlyList<Guid> Editors => _editors; //get
 
         private readonly List<Guid> _teamIds = new(); //set
         public IReadOnlyList<Guid> TeamIds => _teamIds; //get
