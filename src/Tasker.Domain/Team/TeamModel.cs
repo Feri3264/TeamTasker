@@ -14,6 +14,8 @@ namespace Tasker.Domain.Team
     {
         public string Name { get; private set; }
 
+        public Guid LeadId { get; private set; }
+
 
         //navigation
         public Guid SessionId { get; private set; }
@@ -50,6 +52,11 @@ namespace Tasker.Domain.Team
 
             Name = value;
             return Result.Success;
+        }
+
+        public void ChangeTeamLead(Guid id)
+        {
+            LeadId = id;
         }
 
         public ErrorOr<Success> AddTeamMember(Guid teamMemberId)

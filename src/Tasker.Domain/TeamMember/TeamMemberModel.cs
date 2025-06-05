@@ -13,12 +13,15 @@ namespace Tasker.Domain.TeamMember
 
         public Guid TeamId { get; private set; }
 
+        public bool IsTeamLead { get; private set; }
+
         //ctor
-        public TeamMemberModel(Guid _userId , Guid _teamId)
+        public TeamMemberModel(Guid _userId , Guid _teamId, bool _isTeamLead)
         {
             Id = Guid.NewGuid();
             UserId = _userId;
             TeamId = _teamId;
+            IsTeamLead = _isTeamLead;
         }
     }
 }

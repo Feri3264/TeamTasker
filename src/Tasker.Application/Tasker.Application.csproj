@@ -15,7 +15,8 @@
     <Folder Include="Project\Command\Create\" />
     <Folder Include="Project\Command\Delete\" />
     <Folder Include="Session\Command\Delete\" />
-    <Folder Include="TeamMember\" />
+    <Folder Include="TeamMember\Command\Delete\" />
+    <Folder Include="TeamMember\Query\" />
   </ItemGroup>
 
   <ItemGroup>
