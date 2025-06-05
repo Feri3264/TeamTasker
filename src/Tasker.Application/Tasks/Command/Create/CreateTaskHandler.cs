@@ -13,7 +13,7 @@ public class CreateTaskHandler
     {
         var newTask = TaskModel.Create(
             request.name,
-            request.status,
+            request.status.ToString(),
             request.priority,
             request.assignedMemberId,
             request.projectId,

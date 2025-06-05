@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tasker.Domain\Tasker.Domain.csproj" />
+    <ProjectReference Include="..\Tasker.Shared\Tasker.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -73,6 +73,16 @@
         "runtime": {
           "bin/placeholder/Tasker.Domain.dll": {}
         }
+      },
+      "Tasker.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Tasker.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Tasker.Shared.dll": {}
+        }
       }
     }
   },
@@ -161,12 +171,18 @@
       "type": "project",
       "path": "../Tasker.Domain/Tasker.Domain.csproj",
       "msbuildProject": "../Tasker.Domain/Tasker.Domain.csproj"
+    },
+    "Tasker.Shared/1.0.0": {
+      "type": "project",
+      "path": "../Tasker.Shared/Tasker.Shared.csproj",
+      "msbuildProject": "../Tasker.Shared/Tasker.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "MediatR >= 12.5.0",
-      "Tasker.Domain >= 1.0.0"
+      "Tasker.Domain >= 1.0.0",
+      "Tasker.Shared >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -203,6 +219,9 @@
           "projectReferences": {
             "C:\\Users\\Feri\\Desktop\\Projects\\TeamTasker\\src\\Tasker.Domain\\Tasker.Domain.csproj": {
               "projectPath": "C:\\Users\\Feri\\Desktop\\Projects\\TeamTasker\\src\\Tasker.Domain\\Tasker.Domain.csproj"
+            },
+            "C:\\Users\\Feri\\Desktop\\Projects\\TeamTasker\\src\\Tasker.Shared\\Tasker.Shared.csproj": {
+              "projectPath": "C:\\Users\\Feri\\Desktop\\Projects\\TeamTasker\\src\\Tasker.Shared\\Tasker.Shared.csproj"
             }
           }
         }

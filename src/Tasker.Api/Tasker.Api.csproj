@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Tasker.Application\Tasker.Application.csproj" />
     <ProjectReference Include="..\Tasker.Contracts\Tasker.Contracts.csproj" />
+    <ProjectReference Include="..\Tasker.Shared\Tasker.Shared.csproj" />
   </ItemGroup>
 
 </Project>

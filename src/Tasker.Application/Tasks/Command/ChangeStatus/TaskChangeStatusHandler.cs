@@ -15,7 +15,7 @@ public class TaskChangeStatusHandler
         if (task is null)
             return TaskError.TaskNotFound;
 
-        task.SetStatus(request.status);
+        task.SetStatus(request.status.ToString());
 
         taskRepository.Update(task);
         await taskRepository.SaveAsync();
