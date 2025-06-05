@@ -1,12 +1,14 @@
 ﻿using ErrorOr;
 using MediatR;
+using Tasker.Application.Common.Interfaces.Auth;
 using Tasker.Application.Common.Interfaces.Repositories;
 using Tasker.Domain.User;
 
 namespace Tasker.Application.User.Command.Login;
 
 public class LoginHandler
-    (IUserRepository userRepository) : IRequestHandler<LoginCommand , ErrorOr<UserModel>>
+    (IUserRepository userRepository,
+        IPasswordService passwordService) : IRequestHandler<LoginCommand , ErrorOr<UserModel>>
 {
     public async Task<ErrorOr<UserModel>> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
@@ -17,7 +19,7 @@ public class LoginHandler
         if (user.IsDelete)
             return UserError.UserAccountDeleted;
 
-        if (request.password != user.Password)
+        if (passwordService.HashPassword(request.password) != user.Password)
             return UserError.EmailOrPasswordNotCorrect;
 
         return user;

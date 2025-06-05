@@ -9,7 +9,6 @@ public static class DependencyInjection
         services.AddMediatR(options =>
             options.RegisterServicesFromAssemblyContaining(typeof(DependencyInjection)));
 
-
         return services;
     }
 }
