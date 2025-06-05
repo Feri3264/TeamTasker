@@ -9,5 +9,10 @@ namespace Tasker.Domain.TeamMember
 {
     public class TeamMemberError
     {
+        public static Error MembershipNotFound = Error.NotFound
+            (code: "membership.not.found", description: "There is No Such a Membership");
+
+        public static Error MemberNotFound = Error.NotFound
+            (code: "member.not.found", description: "There is No Such a Member in The Team");
     }
 }

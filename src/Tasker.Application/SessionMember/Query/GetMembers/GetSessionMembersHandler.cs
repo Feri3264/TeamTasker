@@ -9,9 +9,9 @@ namespace Tasker.Application.SessionMember.Query.GetMembers;
 
 public class GetSessionMembersHandler
     (ISessionRepository sessionRepository,
-        ISessionMemberRepository sessionMemberRepository) : IRequestHandler<GetSessionMembersCommand , ErrorOr<List<UserModel>>>
+        ISessionMemberRepository sessionMemberRepository) : IRequestHandler<GetSessionMembersQuery , ErrorOr<List<UserModel>>>
 {
-    public async Task<ErrorOr<List<UserModel>>> Handle(GetSessionMembersCommand request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<List<UserModel>>> Handle(GetSessionMembersQuery request, CancellationToken cancellationToken)
     {
         var session = await sessionRepository.GetByIdAsync(request.sessionId);
 
