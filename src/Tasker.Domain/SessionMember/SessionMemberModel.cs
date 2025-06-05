@@ -13,12 +13,15 @@ namespace Tasker.Domain.SessionMember
 
         public Guid SessionId { get; private set; }
 
+        public bool IsOwner { get; private set; }
+
         //ctor
-        public SessionMemberModel(Guid _userid , Guid _sessionid)
+        public SessionMemberModel(Guid _userid , Guid _sessionid, bool _isOwner)
         {
             Id = Guid.NewGuid();
             UserId = _userid;
             SessionId = _sessionid;
+            IsOwner = _isOwner;
         }
     }
 }

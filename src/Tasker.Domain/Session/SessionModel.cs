@@ -18,10 +18,6 @@ namespace Tasker.Domain.Session
         public Guid OwnerId { get; private set; }
 
 
-        private readonly List<Guid> _sessionMemberIds = new (); //set
-        public IReadOnlyList<Guid> SessionMemberIds => _sessionMemberIds; //get
-
-
         private readonly List<Guid> _teamIds = new(); //set
         public IReadOnlyList<Guid> TeamIds => _teamIds; //get
 
@@ -49,24 +45,6 @@ namespace Tasker.Domain.Session
                 return SessionError.NameNotValid;
 
             Name = value;
-            return Result.Success;
-        }
-
-        public ErrorOr<Success> AddSessionMember(Guid sessionMemberId)
-        {
-            if (_sessionMemberIds.Contains(sessionMemberId))
-                return SessionError.SessionMemberAlreadyExists;
-
-            _sessionMemberIds.Add(sessionMemberId);
-            return Result.Success;
-        }
-
-        public ErrorOr<Success> RemoveSessionMember(Guid sessionMemberId)
-        {
-            if (_sessionMemberIds.Count == 0 || !_sessionMemberIds.Contains(sessionMemberId))
-                return SessionError.SessionMemberNotExists;
-
-            _sessionMemberIds.Remove(sessionMemberId);
             return Result.Success;
         }
 

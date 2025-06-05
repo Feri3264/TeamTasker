@@ -24,12 +24,11 @@ public class CreateSessionMemberHandler
             return SessionError.SessionNotFound;
 
 
-        var newMember = new SessionMemberModel(request.userId , request.sessionId);
+        var newMember = new SessionMemberModel
+            (request.userId,
+                request.sessionId,
+                session.OwnerId == request.userId ? true : false);
 
-
-        session.AddSessionMember(newMember.Id);
-        user.AddSessionMember(newMember.Id);
-        user.AddSession(session.Id);
 
         await sessionMemberRepository.AddAsync(newMember);
         await sessionMemberRepository.SaveAsync();

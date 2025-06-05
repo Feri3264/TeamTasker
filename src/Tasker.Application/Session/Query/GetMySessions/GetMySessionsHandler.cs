@@ -17,7 +17,7 @@ namespace Tasker.Application.Session.Query.GetMySessions
             if (user is null || user.IsDelete)
                 return UserError.UserNotFound;
 
-            var sessions = await sessionRepository.GetByIdsAsync(user.SessionIds);
+            var sessions = await sessionRepository.GetUserSessions(request.userId);
 
             if (sessions is null)
                 return SessionError.SessionNotFound;

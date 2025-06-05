@@ -10,6 +10,9 @@ namespace Tasker.Domain.SessionMember
     public class SessionMemberError
     {
         public static Error MembershipNotFound = Error.NotFound
-            (code: "member.not.found" , description: "There is No Such a Member in The Session");
+            (code: "membership.not.found" , description: "There is No Such a Membership");
+
+        public static Error MemberNotFound = Error.NotFound
+            (code: "member.not.found", description: "There is No Such a Member in The Session");
     }
 }

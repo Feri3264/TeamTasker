@@ -30,12 +30,6 @@ public class DeleteSessionMemberHandler
         if (membership is null)
             return SessionMemberError.MembershipNotFound;
 
-        session.RemoveSessionMember(membership.Id);
-        user.RemoveSessionMember(membership.Id);
-        user.RemoveSession(session.Id);
-
-        userRepository.Update(user);
-        sessionRepository.Update(session);
 
         sessionMemberRepository.Delete(membership);
         sessionMemberRepository.SaveAsync();

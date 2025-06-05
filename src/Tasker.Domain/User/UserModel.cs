@@ -21,22 +21,6 @@ namespace Tasker.Domain.User
 
 
         //navigation
-        private readonly List<Guid> _sessionIds = new(); //set
-        public IReadOnlyList<Guid> SessionIds => _sessionIds; //get
-
-
-        private readonly List<Guid> _sessionMemberIds = new(); //set
-        public IReadOnlyList<Guid> SessionMemberIds => _sessionMemberIds; //get
-
-
-        private readonly List<Guid> _teamMemberIds = new(); //set
-        public IReadOnlyList<Guid> TeamMemberIds => _teamMemberIds; //get
-
-
-        private readonly List<Guid> _projectMemberIds = new(); //set
-        public IReadOnlyList<Guid> ProjectMemberIds => _projectMemberIds; //get
-
-
         private readonly List<Guid> _taskIds = new(); //set
         public IReadOnlyList<Guid> TaskIds => _taskIds; //get
 
@@ -108,77 +92,6 @@ namespace Tasker.Domain.User
         public void Delete()
         {
             IsDelete = !IsDelete;
-        }
-
-        public ErrorOr<Success> AddSession(Guid sessionId)
-        {
-            if (_sessionIds.Contains(sessionId))
-                return UserError.SessionAlreadyExists;
-
-            _sessionIds.Add(sessionId);
-            return Result.Success;
-        }
-        public ErrorOr<Success> RemoveSession(Guid sessionId)
-        {
-            if (_sessionIds.Count == 0 || !_sessionIds.Contains(sessionId))
-                return UserError.SessionNotExists;
-
-            _sessionIds.Remove(sessionId);
-            return Result.Success;
-        }
-
-        public ErrorOr<Success> AddSessionMember(Guid sessionMemberId)
-        {
-            if (_sessionMemberIds.Contains(sessionMemberId))
-                return UserError.SessionMemberAlreadyExists;
-
-            _sessionMemberIds.Add(sessionMemberId);
-            return Result.Success;
-        }
-
-        public ErrorOr<Success> RemoveSessionMember(Guid sessionMemberId)
-        {
-            if (_sessionMemberIds.Count == 0 || !_sessionMemberIds.Contains(sessionMemberId))
-                return UserError.SessionMemberNotExists;
-
-            _sessionMemberIds.Remove(sessionMemberId);
-            return Result.Success;
-        }
-
-        public ErrorOr<Success> AddTeamMember(Guid teamMemberId)
-        {
-            if (_teamMemberIds.Contains(teamMemberId))
-                return UserError.TeamMemberAlreadyExists;
-
-            _teamMemberIds.Add(teamMemberId);
-            return Result.Success;
-        }
-
-        public ErrorOr<Success> RemoveTeamMember(Guid teamMemberId)
-        {
-            if (_teamMemberIds.Count == 0 || !_teamMemberIds.Contains(teamMemberId))
-                return UserError.TeamMemberNotExists;
-
-            _teamMemberIds.Remove(teamMemberId);
-            return Result.Success;
-        }
-
-        public ErrorOr<Success> AddProjectMember(Guid projectMemberId)
-        {
-            if (_projectMemberIds.Contains(projectMemberId))
-                return UserError.ProjectMemberAlreadyExists;
-
-            _projectMemberIds.Add(projectMemberId);
-            return Result.Success;
-        }
-
-        public ErrorOr<Success> RemoveProjectMember(Guid projectMemberId)
-        {
-            if (_projectMemberIds.Count == 0 || !_projectMemberIds.Contains(projectMemberId))
-                return UserError.ProjectMemberNotExists;
-
-            _projectMemberIds.Remove(projectMemberId);
-            return Result.Success;
         }
 
         public ErrorOr<Success> AddTask(Guid taskId)
