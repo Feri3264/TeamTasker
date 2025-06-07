@@ -7,7 +7,7 @@ using Tasker.Infrastructure.Common.Context;
 
 namespace Tasker.Infrastructure.TeamMember;
 
-public class TeamMemberRepositoy
+public class TeamMemberRepository
     (TeamTaskerDbContext dbContext) : ITeamMemberRepository
 {
     public async Task<TeamMemberModel> GetTeamMemberAsync(Guid userId, Guid teamId)
