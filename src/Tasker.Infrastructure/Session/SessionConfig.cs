@@ -15,7 +15,7 @@ public class SessionConfig : IEntityTypeConfiguration<SessionModel>
         builder.Property(s => s.Id).ValueGeneratedNever();
 
         builder.Property(s => s.Name).HasMaxLength(50).IsRequired();
-        builder.Property(s => s.OwnerId).IsRequired();
+        builder.Property(s => s.OwnerId).ValueGeneratedNever().IsRequired();
         builder.Property(s => s.Editors).HasListOfIdsConverter().IsRequired();
         builder.Property(s => s.TeamIds).HasListOfIdsConverter().IsRequired();
 

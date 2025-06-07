@@ -14,6 +14,10 @@ public class SessionMemberConfig : IEntityTypeConfiguration<SessionMemberModel>
         builder.HasKey(s => s.Id);
         builder.Property(s => s.Id).ValueGeneratedNever();
 
+        builder.Property(s => s.UserId).ValueGeneratedNever().IsRequired();
+        builder.Property(s => s.SessionId).ValueGeneratedNever().IsRequired();
+
+
         //navigation
         builder.HasOne<UserModel>()
             .WithMany()
