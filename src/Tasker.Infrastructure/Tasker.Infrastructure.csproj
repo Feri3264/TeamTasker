@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Common\Context\" />
+    <Folder Include="Session\" />
   </ItemGroup>
 
 </Project>
