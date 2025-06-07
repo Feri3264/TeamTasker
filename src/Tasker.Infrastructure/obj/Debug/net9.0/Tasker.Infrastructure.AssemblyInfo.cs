@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tasker.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+913df4b03f6bd408221e813e8e62993ba01e3a2f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa0bad29ca2187be7139ee008a5eead454cab75b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tasker.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tasker.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
