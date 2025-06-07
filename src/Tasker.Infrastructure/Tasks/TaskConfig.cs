@@ -4,7 +4,7 @@ using Tasker.Domain.Project;
 using Tasker.Domain.Tasks;
 using Tasker.Domain.User;
 
-namespace Tasker.Infrastructure.Task;
+namespace Tasker.Infrastructure.Tasks;
 
 public class TaskConfig : IEntityTypeConfiguration<TaskModel>
 {
