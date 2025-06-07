@@ -7,7 +7,7 @@ namespace Tasker.Application.Common.Interfaces.Repositories;
 
 public interface IProjectMemberRepository
 {
-    Task<ProjectMemberModel> GetProjectMemberAsync(Guid useId, Guid projectId);
+    Task<ProjectMemberModel> GetProjectMemberAsync(Guid userId, Guid projectId);
 
     Task<List<UserModel>> GetMembersAsync(Guid projectId);
 
