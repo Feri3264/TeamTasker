@@ -19,7 +19,7 @@ public class SessionConfig : IEntityTypeConfiguration<SessionModel>
         builder.Property(s => s.Editors).HasListOfIdsConverter().IsRequired();
         builder.Property(s => s.TeamIds).HasListOfIdsConverter().IsRequired();
 
-        //navigations
+        //navigation
         builder.HasOne<UserModel>()
             .WithMany()
             .HasForeignKey(s => s.OwnerId);
