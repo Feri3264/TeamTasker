@@ -27,7 +27,7 @@ public class GetSessionTeamsHandler
         else
         {
             teams = await teamMemberRepository
-                .GetTeamByMemberAsync(session.TeamIds, request.userId);
+                .GetTeamsByMemberAsync(session.TeamIds, request.userId);
         }
 
         if (teams is null)

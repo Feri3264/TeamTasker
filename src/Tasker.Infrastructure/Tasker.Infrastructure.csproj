@@ -22,7 +22,6 @@
   <ItemGroup>
     <Folder Include="Common\Context\" />
     <Folder Include="Tasks\" />
-    <Folder Include="TeamMember\" />
   </ItemGroup>
 
 </Project>
