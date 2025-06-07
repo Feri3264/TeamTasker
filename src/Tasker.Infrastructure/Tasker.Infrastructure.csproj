@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Folder Include="Common\Context\" />
+    <Folder Include="Task\" />
     <Folder Include="TeamMember\" />
     <Folder Include="Session\" />
   </ItemGroup>
