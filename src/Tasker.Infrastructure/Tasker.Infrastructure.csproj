@@ -23,7 +23,6 @@
     <Folder Include="Common\Context\" />
     <Folder Include="Tasks\" />
     <Folder Include="TeamMember\" />
-    <Folder Include="Session\" />
   </ItemGroup>
 
 </Project>
