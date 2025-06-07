@@ -91,5 +91,7 @@ namespace Tasker.Domain.Tasks
         {
             AssignedMemberId = memberId;
         }
+
+        private TaskModel() { }
     }
 }

@@ -1,0 +1,12 @@
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\bin\Debug\net9.0\Tasker.Shared.deps.json
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\bin\Debug\net9.0\Tasker.Shared.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\bin\Debug\net9.0\Tasker.Shared.pdb
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\obj\Debug\net9.0\Tasker.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\obj\Debug\net9.0\Tasker.Shared.AssemblyInfoInputs.cache
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\obj\Debug\net9.0\Tasker.Shared.AssemblyInfo.cs
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\obj\Debug\net9.0\Tasker.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\obj\Debug\net9.0\Tasker.Shared.sourcelink.json
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\obj\Debug\net9.0\Tasker.Shared.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\obj\Debug\net9.0\refint\Tasker.Shared.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\obj\Debug\net9.0\Tasker.Shared.pdb
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Shared\obj\Debug\net9.0\ref\Tasker.Shared.dll

@@ -23,5 +23,7 @@ namespace Tasker.Domain.SessionMember
             SessionId = _sessionid;
             IsOwner = _isOwner;
         }
+
+        private SessionMemberModel() { }
     }
 }

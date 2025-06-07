@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tasker.Domain.Project;
 using Tasker.Domain.Team;
 using Tasker.Infrastructure.Common.FluentApi;
@@ -17,7 +18,11 @@ public class ProjectConfig : IEntityTypeConfiguration<ProjectModel>
         builder.Property(p => p.Name).HasMaxLength(50).IsRequired();
         builder.Property(p => p.LeadId).ValueGeneratedNever().IsRequired();
         builder.Property(p => p.TeamId).ValueGeneratedNever().IsRequired();
-        builder.Property(p => p.TaskIds).HasListOfIdsConverter().IsRequired();
+
+        //lists
+        builder.Property(typeof(List<Guid>) , "_taskIds")
+            .HasColumnName("TaskId")
+            .HasConversion(new ListOfIdsConverter());
 
         //navigation
         builder.HasOne<TeamModel>()

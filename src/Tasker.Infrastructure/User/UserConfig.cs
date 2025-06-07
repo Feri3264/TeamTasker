@@ -5,7 +5,7 @@ using Tasker.Infrastructure.Common.FluentApi;
 
 namespace Tasker.Infrastructure.User;
 
-public class UserConfig : IEntityTypeConfiguration<UserModel>
+internal class UserConfig : IEntityTypeConfiguration<UserModel>
 {
     public void Configure(EntityTypeBuilder<UserModel> builder)
     {
@@ -17,6 +17,10 @@ public class UserConfig : IEntityTypeConfiguration<UserModel>
         builder.Property(u => u.Email).HasMaxLength(150).IsRequired();
         builder.Property(u => u.Password).HasMaxLength(150).IsRequired();
         builder.Property(u => u.IsDelete).IsRequired();
-        builder.Property(u => u.TaskIds).HasListOfIdsConverter();
+
+        //lists
+        builder.Property(typeof(List<Guid>), "_taskIds")
+            .HasColumnName("TaskIds")
+            .HasConversion(new ListOfIdsConverter());
     }
 }

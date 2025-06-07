@@ -17,7 +17,11 @@ public class TeamConfig : IEntityTypeConfiguration<TeamModel>
         builder.Property(t => t.Name).HasMaxLength(50).IsRequired();
         builder.Property(t => t.LeadId).ValueGeneratedNever().IsRequired();
         builder.Property(t => t.SessionId).ValueGeneratedNever().IsRequired();
-        builder.Property(t => t.ProjectIds).HasListOfIdsConverter().IsRequired();
+
+        //lists
+        builder.Property(typeof(List<Guid>), "_projectIds")
+            .HasColumnName("ProjectIds")
+            .HasConversion(new ListOfIdsConverter());
 
 
         //navigation

@@ -23,5 +23,7 @@ namespace Tasker.Domain.TeamMember
             TeamId = _teamId;
             IsTeamLead = _isTeamLead;
         }
+
+        private TeamMemberModel() { }
     }
 }

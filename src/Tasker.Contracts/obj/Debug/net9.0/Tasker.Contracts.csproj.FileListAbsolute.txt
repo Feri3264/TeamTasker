@@ -1,0 +1,12 @@
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\bin\Debug\net9.0\Tasker.Contracts.deps.json
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\bin\Debug\net9.0\Tasker.Contracts.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\bin\Debug\net9.0\Tasker.Contracts.pdb
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\obj\Debug\net9.0\Tasker.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\obj\Debug\net9.0\Tasker.Contracts.AssemblyInfoInputs.cache
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\obj\Debug\net9.0\Tasker.Contracts.AssemblyInfo.cs
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\obj\Debug\net9.0\Tasker.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\obj\Debug\net9.0\Tasker.Contracts.sourcelink.json
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\obj\Debug\net9.0\Tasker.Contracts.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\obj\Debug\net9.0\refint\Tasker.Contracts.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\obj\Debug\net9.0\Tasker.Contracts.pdb
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Contracts\obj\Debug\net9.0\ref\Tasker.Contracts.dll

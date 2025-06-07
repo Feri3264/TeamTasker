@@ -157,5 +157,7 @@ namespace Tasker.Domain.User
             return Result.Success;
         }
         #endregion
+
+        private UserModel() { }
     }
 }

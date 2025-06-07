@@ -87,5 +87,7 @@ namespace Tasker.Domain.Session
             _teamIds.Remove(teamId);
             return Result.Success;
         }
+
+        private SessionModel() { }
     }
 }

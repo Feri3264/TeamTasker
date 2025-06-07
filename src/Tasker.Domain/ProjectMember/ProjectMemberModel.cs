@@ -23,5 +23,7 @@ namespace Tasker.Domain.ProjectMember
             ProjectId = _projectId;
             IsProjectLead = _isProjectLead;
         }
+
+        private ProjectMemberModel() { }
     }
 }

@@ -75,5 +75,7 @@ namespace Tasker.Domain.Project
             _taskIds.Remove(taskId);
             return Result.Success;
         }
+
+        private ProjectModel() { }
     }
 }

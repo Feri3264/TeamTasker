@@ -433,7 +433,7 @@
           "Microsoft.Extensions.Logging": "9.0.0"
         },
         "compile": {
-          "lib/net8.0/_._": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.dll": {
             "related": ".xml"
           }
         },
@@ -449,7 +449,7 @@
       "Microsoft.EntityFrameworkCore.Abstractions/9.0.0": {
         "type": "package",
         "compile": {
-          "lib/net8.0/_._": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -502,7 +502,7 @@
           "Microsoft.Extensions.Logging": "9.0.0"
         },
         "compile": {
-          "lib/net8.0/_._": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Relational.dll": {
             "related": ".xml"
           }
         },
@@ -518,7 +518,7 @@
           "Microsoft.Extensions.Primitives": "9.0.0"
         },
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net9.0/Microsoft.Extensions.Caching.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -541,7 +541,7 @@
           "Microsoft.Extensions.Primitives": "9.0.0"
         },
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net9.0/Microsoft.Extensions.Caching.Memory.dll": {
             "related": ".xml"
           }
         },
@@ -560,7 +560,7 @@
           "Microsoft.Extensions.Primitives": "9.0.0"
         },
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -579,7 +579,7 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0"
         },
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net9.0/Microsoft.Extensions.DependencyInjection.dll": {
             "related": ".xml"
           }
         },
@@ -632,7 +632,7 @@
           "Microsoft.Extensions.Options": "9.0.0"
         },
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net9.0/Microsoft.Extensions.Logging.dll": {
             "related": ".xml"
           }
         },
@@ -651,7 +651,7 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0"
         },
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net9.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -671,7 +671,7 @@
           "Microsoft.Extensions.Primitives": "9.0.0"
         },
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net9.0/Microsoft.Extensions.Options.dll": {
             "related": ".xml"
           }
         },
@@ -687,7 +687,7 @@
       "Microsoft.Extensions.Primitives/9.0.0": {
         "type": "package",
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net9.0/Microsoft.Extensions.Primitives.dll": {
             "related": ".xml"
           }
         },
@@ -726,6 +726,40 @@
         },
         "build": {
           "buildTransitive/Mono.TextTemplating.targets": {}
+        }
+      },
+      "Npgsql/9.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/9.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "[9.0.0, 10.0.0)",
+          "Microsoft.EntityFrameworkCore.Relational": "[9.0.0, 10.0.0)",
+          "Npgsql": "9.0.1"
+        },
+        "compile": {
+          "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.CodeDom/6.0.0": {
@@ -989,6 +1023,21 @@
         },
         "runtime": {
           "bin/placeholder/Tasker.Domain.dll": {}
+        }
+      },
+      "Tasker.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.1",
+          "Tasker.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Tasker.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Tasker.Infrastructure.dll": {}
         }
       },
       "Tasker.Shared/1.0.0": {
@@ -2522,6 +2571,38 @@
         "readme.md"
       ]
     },
+    "Npgsql/9.0.1": {
+      "sha512": "aZrXuBUUjRnvjoS4Lq0ZPYe3pnzAfK7TroGNGVpo4FCMBW1ypD/XfTTYjXpeRI8xcX5Otiv535Dy2jQWi98oeA==",
+      "type": "package",
+      "path": "npgsql/9.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Npgsql.dll",
+        "lib/net6.0/Npgsql.xml",
+        "lib/net8.0/Npgsql.dll",
+        "lib/net8.0/Npgsql.xml",
+        "npgsql.9.0.1.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/9.0.1": {
+      "sha512": "nN9Tjg73Edr4oBhNkBsfHBduNUlDFty1gIX0Ztp0np82ElSCiEcwRuN11Kv4kx2H9VDQaEeMwWAIym5aVsgVyg==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/9.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
+        "npgsql.entityframeworkcore.postgresql.9.0.1.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec",
+        "postgresql.png"
+      ]
+    },
     "System.CodeDom/6.0.0": {
       "sha512": "CPc6tWO1LAer3IzfZufDBRL+UZQcj5uS207NHALQzP84Vp/z6wF0Aa0YZImOQY8iStY0A2zI/e3ihKNPfUm8XA==",
       "type": "package",
@@ -2925,6 +3006,11 @@
       "path": "../Tasker.Domain/Tasker.Domain.csproj",
       "msbuildProject": "../Tasker.Domain/Tasker.Domain.csproj"
     },
+    "Tasker.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Tasker.Infrastructure/Tasker.Infrastructure.csproj",
+      "msbuildProject": "../Tasker.Infrastructure/Tasker.Infrastructure.csproj"
+    },
     "Tasker.Shared/1.0.0": {
       "type": "project",
       "path": "../Tasker.Shared/Tasker.Shared.csproj",
@@ -2937,6 +3023,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 9.0.0",
       "Tasker.Application >= 1.0.0",
       "Tasker.Contracts >= 1.0.0",
+      "Tasker.Infrastructure >= 1.0.0",
       "Tasker.Shared >= 1.0.0"
     ]
   },
@@ -2977,6 +3064,9 @@
             },
             "C:\\Users\\Feri\\Desktop\\Projects\\TeamTasker\\src\\Tasker.Contracts\\Tasker.Contracts.csproj": {
               "projectPath": "C:\\Users\\Feri\\Desktop\\Projects\\TeamTasker\\src\\Tasker.Contracts\\Tasker.Contracts.csproj"
+            },
+            "C:\\Users\\Feri\\Desktop\\Projects\\TeamTasker\\src\\Tasker.Infrastructure\\Tasker.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Feri\\Desktop\\Projects\\TeamTasker\\src\\Tasker.Infrastructure\\Tasker.Infrastructure.csproj"
             },
             "C:\\Users\\Feri\\Desktop\\Projects\\TeamTasker\\src\\Tasker.Shared\\Tasker.Shared.csproj": {
               "projectPath": "C:\\Users\\Feri\\Desktop\\Projects\\TeamTasker\\src\\Tasker.Shared\\Tasker.Shared.csproj"

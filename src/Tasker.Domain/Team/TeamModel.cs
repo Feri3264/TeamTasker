@@ -72,5 +72,7 @@ namespace Tasker.Domain.Team
             _projectIds.Remove(projectId);
             return Result.Success;
         }
+
+        private TeamModel() { }
     }
 }
