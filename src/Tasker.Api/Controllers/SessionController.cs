@@ -21,10 +21,17 @@ namespace Tasker.Api.Controllers
             var result = await mediator.Send
                 (new GetMySessionsQuery(userId));
 
-            var sessions = result.Value.Select(r => new MySessionsResponseDto(
-                r.Id,
-                r.Name,
-                r.OwnerId));
+            IEnumerable<MySessionsResponseDto> sessions =
+                new List<MySessionsResponseDto>();
+
+            if (result.Value is not null)
+            {
+                sessions = result.Value.Select(r => new MySessionsResponseDto(
+                    r.Id,
+                    r.Name,
+                    r.OwnerId));
+            }
+
 
             return result.Match(
                 _ => Ok(sessions), Problem);

@@ -5,7 +5,7 @@ using Tasker.Domain.Session;
 using Tasker.Domain.SessionMember;
 using Tasker.Domain.User;
 
-namespace Tasker.Application.SessionMember.Query.GetMembers;
+namespace Tasker.Application.SessionMember.Query.GetSessionMembers;
 
 public class GetSessionMembersHandler
     (ISessionRepository sessionRepository,
