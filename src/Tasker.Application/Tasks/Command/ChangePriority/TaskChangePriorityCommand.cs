@@ -5,4 +5,4 @@ using Tasker.Shared.Enums;
 namespace Tasker.Application.Tasks.Command.ChangePriority;
 
 public record TaskChangePriorityCommand
-    (Guid id , TaskPriorityEnum priority) : IRequest<ErrorOr<Success>>;
+    (Guid id , string priority) : IRequest<ErrorOr<Success>>;

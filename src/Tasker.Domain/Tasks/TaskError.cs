@@ -16,6 +16,12 @@ namespace Tasker.Domain.Tasks
         public static Error NameNotValid = Error.Validation
             (code: "name.not.valid", description: "Entered Name is Not Valid");
 
+        public static Error StatusNotValid = Error.Validation
+            (code: "status.not.valid", description: "Invalid Status Value");
+
+        public static Error PriorityNotValid = Error.Validation
+            (code: "priority.not.valid", description: "Invalid Priority Value");
+
         public static Error DeadlineNotValid = Error.Validation
             (code: "deadline.not.valid", description: "Entered Deadline is Not Valid");
     }

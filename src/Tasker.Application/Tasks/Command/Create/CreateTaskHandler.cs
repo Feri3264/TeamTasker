@@ -3,6 +3,7 @@ using MediatR;
 using Tasker.Application.Common.Interfaces.Repositories;
 using Tasker.Domain.Project;
 using Tasker.Domain.Tasks;
+using Tasker.Shared.Enums;
 
 namespace Tasker.Application.Tasks.Command.Create;
 
@@ -11,10 +12,20 @@ public class CreateTaskHandler
 {
     public async Task<ErrorOr<TaskModel>> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
     {
+        if (!Enum.TryParse<TaskStatusEnum>(request.status, true, out var status))
+        {
+            return TaskError.StatusNotValid;
+        }
+
+        if (!Enum.TryParse<TaskPriorityEnum>(request.priority, true, out var priority))
+        {
+            return TaskError.PriorityNotValid;
+        }
+
         var newTask = TaskModel.Create(
             request.name,
-            request.status.ToString(),
-            request.priority.ToString(),
+            status.ToString(),
+            priority.ToString(),
             request.assignedMemberId,
             request.projectId,
             request.deadline);

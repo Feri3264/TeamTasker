@@ -9,6 +9,9 @@
   <ItemGroup>
     <Folder Include="ProjectMember\AddProjectMember\" />
     <Folder Include="Session\MySessions\" />
+    <Folder Include="Task\Create\" />
+    <Folder Include="Task\ChangeMember\" />
+    <Folder Include="Task\ChangeStatus\" />
     <Folder Include="User\SearchByEmail\" />
   </ItemGroup>
 

@@ -2,6 +2,7 @@
 using MediatR;
 using Tasker.Application.Common.Interfaces.Repositories;
 using Tasker.Domain.Tasks;
+using Tasker.Shared.Enums;
 
 namespace Tasker.Application.Tasks.Command.ChangePriority;
 
@@ -15,7 +16,12 @@ public class TaskChangePriorityHandler
         if (task is null)
             return TaskError.TaskNotFound;
 
-        task.SetPriority(request.priority.ToString());
+        if (!Enum.TryParse<TaskPriorityEnum>(request.priority, true, out var priority))
+        {
+            return TaskError.PriorityNotValid;
+        }
+
+        task.SetPriority(priority.ToString());
 
         taskRepository.Update(task);
         await taskRepository.SaveAsync();

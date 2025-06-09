@@ -2,6 +2,7 @@
 using MediatR;
 using Tasker.Application.Common.Interfaces.Repositories;
 using Tasker.Domain.Tasks;
+using Tasker.Shared.Enums;
 
 namespace Tasker.Application.Tasks.Command.ChangeStatus;
 
@@ -15,7 +16,12 @@ public class TaskChangeStatusHandler
         if (task is null)
             return TaskError.TaskNotFound;
 
-        task.SetStatus(request.status.ToString());
+        if (!Enum.TryParse<TaskStatusEnum>(request.status, true, out var status))
+        {
+            return TaskError.StatusNotValid;
+        }
+
+        task.SetStatus(status.ToString());
 
         taskRepository.Update(task);
         await taskRepository.SaveAsync();
