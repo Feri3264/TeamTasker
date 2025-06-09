@@ -32,7 +32,7 @@ public class DeleteSessionMemberHandler
 
 
         sessionMemberRepository.Delete(membership);
-        sessionMemberRepository.SaveAsync();
+        await sessionMemberRepository.SaveAsync();
         return Result.Success;
     }
 }

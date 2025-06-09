@@ -29,7 +29,7 @@ namespace Tasker.Api.Controllers
                 members = result.Value.Select(r => new GetTeamMembersResponseDto(
                     r.Id,
                     r.Name,
-                    r.Email));
+                    r.Email)).ToList();
             }
 
             return result.Match(

@@ -29,7 +29,7 @@ public class SessionMemberRepository
 
     public async Task AddAsync(SessionMemberModel model)
     {
-        dbContext.SessionMembers.AddAsync(model);
+        await dbContext.SessionMembers.AddAsync(model);
     }
 
     public void Delete(SessionMemberModel model)

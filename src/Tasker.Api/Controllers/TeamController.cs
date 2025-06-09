@@ -32,7 +32,7 @@ namespace Tasker.Api.Controllers
                 teams = result.Value.Select(r => new GetSessionTeamsResponseDto(
                     r.Id,
                     r.Name,
-                    r.LeadId));
+                    r.LeadId)).ToList();
             }
 
             return result.Match(

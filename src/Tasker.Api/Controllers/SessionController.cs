@@ -29,7 +29,7 @@ namespace Tasker.Api.Controllers
                 sessions = result.Value.Select(r => new MySessionsResponseDto(
                     r.Id,
                     r.Name,
-                    r.OwnerId));
+                    r.OwnerId)).ToList();
             }
 
 
