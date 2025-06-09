@@ -51,3 +51,5 @@ C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Api\obj\Debug\net9.0\refint
 C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Api\obj\Debug\net9.0\Tasker.Api.pdb
 C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Api\obj\Debug\net9.0\Tasker.Api.genruntimeconfig.cache
 C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Api\obj\Debug\net9.0\ref\Tasker.Api.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Feri\Desktop\Projects\TeamTasker\src\Tasker.Api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
