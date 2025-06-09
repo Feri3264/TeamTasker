@@ -33,7 +33,7 @@ public class TeamRepository
 
     public void Delete(TeamModel model)
     {
-        dbContext.Teams.Update(model);
+        dbContext.Teams.Remove(model);
     }
 
     public async Task SaveAsync()

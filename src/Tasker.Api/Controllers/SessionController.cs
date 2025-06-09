@@ -79,10 +79,10 @@ namespace Tasker.Api.Controllers
         #region ChangeName
 
         [HttpPatch("{sessionId:guid}/{name}")]
-        public async Task<IActionResult> ChangeName([FromRoute] Guid Id, [FromRoute] string name)
+        public async Task<IActionResult> ChangeName([FromRoute] Guid sessionId, [FromRoute] string name)
         {
             var result = await mediator.Send
-                (new SessionChangeNameCommand(Id, name));
+                (new SessionChangeNameCommand(sessionId, name));
 
             return result.Match(
                 _ => Ok(), Problem);

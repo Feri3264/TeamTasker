@@ -31,6 +31,7 @@ namespace Tasker.Domain.Team
             Id = Guid.NewGuid();
             Name = _name;
             SessionId = _sessionId;
+            LeadId = _leadId;
         }
 
         //methods

@@ -17,12 +17,24 @@ public class TaskChangeMemberHandler
         if (task is null)
             return TaskError.TaskNotFound;
 
+        var preUser = await userRepository.GetByIdAsync(task.AssignedMemberId);
+
+        if (preUser is null)
+            return UserError.UserNotFound;
+
+
         var user = await userRepository.GetByIdAsync(request.userId);
 
         if (user is null)
             return UserError.UserNotFound;
 
         task.ChangeAssignedMember(user.Id);
+
+        user.AddTask(task.Id);
+        userRepository.Update(user);
+
+        preUser.RemoveTask(task.Id);
+        userRepository.Update(preUser);
 
         taskRepository.Update(task);
         await taskRepository.SaveAsync();

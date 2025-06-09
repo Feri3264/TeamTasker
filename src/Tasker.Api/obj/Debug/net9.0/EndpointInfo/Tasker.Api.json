@@ -330,7 +330,7 @@
         ],
         "parameters": [
           {
-            "name": "Id",
+            "name": "sessionId",
             "in": "path",
             "required": true,
             "schema": {
@@ -340,14 +340,6 @@
           },
           {
             "name": "name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "sessionId",
             "in": "path",
             "required": true,
             "schema": {

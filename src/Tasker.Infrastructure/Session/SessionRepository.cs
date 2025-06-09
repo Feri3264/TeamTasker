@@ -21,6 +21,13 @@ public class SessionRepository
             .Select(sm => sm.SessionId)
             .ToListAsync();
 
+        var ownedIds = await dbContext.Sessions
+            .Where(s => s.OwnerId == userId)
+            .Select(s => s.Id)
+            .ToListAsync();
+
+        sessionIds.AddRange(ownedIds);
+
         var sessions = await dbContext.Sessions
             .Where(s => sessionIds.Contains(s.Id))
             .ToListAsync();

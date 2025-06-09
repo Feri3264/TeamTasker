@@ -166,18 +166,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "sessionId",
         "Type": "System.Guid",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "name",
         "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "sessionId",
-        "Type": "",
         "IsRequired": true
       }
     ],
