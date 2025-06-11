@@ -8,12 +8,19 @@ namespace Tasker.Application.User.Command.Register;
 
 public class RegisterHandler
     (IUserRepository userRepository,
-        IPasswordService passwordService) : IRequestHandler<RegisterCommand , ErrorOr<UserModel>>
+        IPasswordService passwordService,
+        IRefreshTokenService refreshTokenService) : IRequestHandler<RegisterCommand , ErrorOr<UserModel>>
 {
     public async Task<ErrorOr<UserModel>> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
-        var newUser = UserModel.Create
-            (request.name, request.email, passwordService.HashPassword(request.password));
+        var refreshToken = refreshTokenService.GenerateRefreshToken();
+
+        var newUser = UserModel.Create(
+            request.name,
+            request.email,
+            passwordService.HashPassword(request.password),
+            refreshToken,
+            DateTime.UtcNow.AddDays(10));
 
         if (newUser.IsError)
             return newUser.Errors;

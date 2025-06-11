@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tasker.Application.SessionMember.Command.Create;
 using Tasker.Application.SessionMember.Command.Delete;
@@ -8,6 +9,7 @@ using Tasker.Contracts.SessionMember.GetSessionMembers;
 
 namespace Tasker.Api.Controllers
 {
+    [Authorize]
     [Route("/api/session")]
     public class SessionMemberController
         (IMediator mediator) : ApiController

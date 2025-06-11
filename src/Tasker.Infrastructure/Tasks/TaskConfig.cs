@@ -20,9 +20,6 @@ public class TaskConfig : IEntityTypeConfiguration<TaskModel>
         builder.Property(t => t.AssignedMemberId).ValueGeneratedNever().IsRequired();
         builder.Property(t => t.ProjectId).ValueGeneratedNever().IsRequired();
 
-        builder.Property(t => t.Deadline).HasColumnType("timestamp without time zone")
-            .IsRequired();
-
 
         //navigation
         builder.HasOne<UserModel>()

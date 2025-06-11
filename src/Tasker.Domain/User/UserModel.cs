@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,10 @@ namespace Tasker.Domain.User
 
         public string Password { get; private set; }
 
+        public string RefreshToken { get; private set; }
+
+        public DateTime TokenExpire { get; private set; }
+
         public bool IsDelete { get; private set; }
 
 
@@ -29,19 +34,25 @@ namespace Tasker.Domain.User
         private UserModel(
             string _name,
             string _email,
-            string _password)
+            string _password,
+            string _refreshToken,
+            DateTime _tokenExpire)
         {
             Id = Guid.NewGuid();
             Name = _name;
             Email = _email;
             Password = _password;
+            RefreshToken = _refreshToken;
+            TokenExpire = _tokenExpire;
         }
 
         //methods
         public static ErrorOr<UserModel> Create(
             string _name,
             string _email,
-            string _password)
+            string _password,
+            string _refreshToekn,
+            DateTime _tokenExpire)
         {
             //password validation
             var validatePassword = ValidatePassword(_password);
@@ -57,7 +68,7 @@ namespace Tasker.Domain.User
             if (verifyEmail.IsError)
                 return verifyEmail.Errors;
 
-            return new UserModel(_name, _email, _password);
+            return new UserModel(_name, _email, _password , _refreshToekn , _tokenExpire);
         }
 
         public ErrorOr<Success> SetName(string value)
@@ -89,9 +100,14 @@ namespace Tasker.Domain.User
             return Result.Success;
         }
 
-        public void Delete()
+        public void SetRefreshToken(string value)
         {
-            IsDelete = !IsDelete;
+            RefreshToken = value;
+        }
+
+        public void SetTokenExpireTime(DateTime date)
+        {
+            TokenExpire = date;
         }
 
         public ErrorOr<Success> AddTask(Guid taskId)
@@ -110,6 +126,11 @@ namespace Tasker.Domain.User
 
             _taskIds.Remove(taskId);
             return Result.Success;
+        }
+
+        public void Delete()
+        {
+            IsDelete = !IsDelete;
         }
 
         #region Password Validation

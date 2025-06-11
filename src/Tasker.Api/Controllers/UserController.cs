@@ -1,5 +1,8 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Design;
+using Tasker.Application.Common.Interfaces.Auth;
 using Tasker.Application.User.Command.ChangeName;
 using Tasker.Application.User.Command.ChangePassword;
 using Tasker.Application.User.Command.Delete;
@@ -16,18 +19,25 @@ using Tasker.Contracts.User.ShowProfile;
 
 namespace Tasker.Api.Controllers
 {
+    [Authorize]
     [Route("/api/user")]
     public class UserController
-        (IMediator mediator) : ApiController
+        (IMediator mediator,
+        IJwtService jwtService) : ApiController
     {
 
         #region Register
-
+        
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequestDto request)
         {
             var result = await mediator.Send
                 (new RegisterCommand(request.name, request.email, request.password));
+
+            var jwtToken = jwtService.GenerateToken(
+                result.Value.Id,
+                result.Value.Email);
 
             return result.Match(
                 user => CreatedAtAction(
@@ -38,6 +48,8 @@ namespace Tasker.Api.Controllers
                         user.Name,
                         user.Email,
                         user.Password,
+                        user.RefreshToken,
+                        jwtToken,
                         user.IsDelete)), Problem);
         }
 
@@ -45,11 +57,16 @@ namespace Tasker.Api.Controllers
 
         #region Login
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto request)
         {
             var result = await mediator.Send
                 (new LoginCommand(request.email, request.password));
+
+            var jwtToken = jwtService.GenerateToken(
+                result.Value.Id,
+                result.Value.Email);
 
             return result.Match(
                 user => CreatedAtAction(
@@ -59,18 +76,23 @@ namespace Tasker.Api.Controllers
                     user.Id,
                     user.Name,
                     user.Email,
-                    user.Password)), Problem);
+                    user.Password,
+                    user.RefreshToken,
+                    jwtToken)), Problem);
         }
 
         #endregion
 
         #region ShowProfile
 
-        [HttpGet("{Id:guid}")]
-        public async Task<IActionResult> ShowProfile([FromRoute] Guid Id)
+        [HttpGet]
+        public async Task<IActionResult> ShowProfile()
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new GetMyProfileQuery(Id));
+                (new GetMyProfileQuery(UserId));
 
             return result.Match(
                 user => Ok(
@@ -85,11 +107,14 @@ namespace Tasker.Api.Controllers
 
         #region Delete
 
-        [HttpDelete("{Id:guid}")]
-        public async Task<IActionResult> Delete([FromRoute] Guid Id)
+        [HttpDelete]
+        public async Task<IActionResult> Delete()
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new DeleteUserCommand(Id));
+                (new DeleteUserCommand(UserId));
 
             return result.Match(
                 _ => Ok(), Problem);
@@ -117,11 +142,14 @@ namespace Tasker.Api.Controllers
 
         #region ChangeName
 
-        [HttpPatch("{Id:guid}/{name}")]
-        public async Task<IActionResult> ChangeName([FromRoute] Guid Id , [FromRoute] string name)
+        [HttpPatch("{name}")]
+        public async Task<IActionResult> ChangeName([FromRoute] string name)
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new UserChangeNameCommand(Id, name));
+                (new UserChangeNameCommand(UserId, name));
 
             return result.Match(
                 _ => Ok(), Problem);
@@ -131,13 +159,14 @@ namespace Tasker.Api.Controllers
 
         #region ChangePassword
 
-        [HttpPatch("{Id:guid}")]
-        public async Task<IActionResult> ChangePassword(
-            [FromRoute] Guid Id,
-            [FromBody] UserChangePasswordRequestDto request)
+        [HttpPatch]
+        public async Task<IActionResult> ChangePassword([FromBody] UserChangePasswordRequestDto request)
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new UserChangePasswordCommand(Id, request.oldPassword , request.newPassword));
+                (new UserChangePasswordCommand(UserId, request.oldPassword , request.newPassword));
 
             return result.Match(
                 _ => Ok(), Problem);

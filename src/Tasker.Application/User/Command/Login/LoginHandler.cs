@@ -8,7 +8,8 @@ namespace Tasker.Application.User.Command.Login;
 
 public class LoginHandler
     (IUserRepository userRepository,
-        IPasswordService passwordService) : IRequestHandler<LoginCommand , ErrorOr<UserModel>>
+        IPasswordService passwordService,
+        IRefreshTokenService refreshTokenService) : IRequestHandler<LoginCommand , ErrorOr<UserModel>>
 {
     public async Task<ErrorOr<UserModel>> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
@@ -22,6 +23,12 @@ public class LoginHandler
         if (passwordService.HashPassword(request.password) != user.Password)
             return UserError.EmailOrPasswordNotCorrect;
 
+        var newRefreshToken = refreshTokenService.GenerateRefreshToken();
+        user.SetRefreshToken(newRefreshToken);
+        user.SetTokenExpireTime(DateTime.UtcNow.AddDays(10));
+
+        userRepository.Update(user);
+        await userRepository.SavaAsync();
         return user;
     }
 }

@@ -8,6 +8,8 @@ public interface IUserRepository
 
     Task<UserModel> GetByEmailAsync(string email);
 
+    Task<UserModel> GetUserByRefreshToken(string token);
+
     Task<bool> IsEmailExists(string email);
 
     Task AddAsync(UserModel model);

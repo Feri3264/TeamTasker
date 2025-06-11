@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tasker.Application.Tasks.Command.ChangeMember;
 using Tasker.Application.Tasks.Command.ChangeName;
@@ -17,6 +18,7 @@ using Tasker.Contracts.Task.GetUserTasks;
 
 namespace Tasker.Api.Controllers
 {
+    [Authorize]
     [Route("/api/task")]
     public class TaskController
         (IMediator mediator) : ApiController
@@ -24,11 +26,14 @@ namespace Tasker.Api.Controllers
 
         #region Get Tasks By User
 
-        [HttpGet("user/{userId}")]
-        public async Task<IActionResult> GetUserTasks([FromRoute] Guid userId)
+        [HttpGet("user")]
+        public async Task<IActionResult> GetUserTasks()
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new GetMyTasksQuery(userId));
+                (new GetMyTasksQuery(UserId));
 
             IEnumerable<GetUserTasksResponseDto> tasks =
                 new List<GetUserTasksResponseDto>();
@@ -53,13 +58,14 @@ namespace Tasker.Api.Controllers
 
         #region Get Tasks By Project
 
-        [HttpGet("{projectId}/{userId}")]
-        public async Task<IActionResult> GetProjectTasks(
-            [FromRoute] Guid projectId,
-            [FromRoute] Guid userId)
+        [HttpGet("{projectId}")]
+        public async Task<IActionResult> GetProjectTasks([FromRoute] Guid projectId)
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new GetProjectTasksQuery(projectId , userId));
+                (new GetProjectTasksQuery(projectId , UserId));
 
             IEnumerable<GetProjectTasksResponseDto> tasks =
                 new List<GetProjectTasksResponseDto>();
@@ -84,12 +90,14 @@ namespace Tasker.Api.Controllers
 
         #region Create
 
-        [HttpPost("{projectId}/{creatorId}")]
+        [HttpPost("{projectId}")]
         public async Task<IActionResult> Create(
             [FromRoute] Guid projectId,
-            [FromRoute] Guid creatorId,
             [FromBody] CreateTaskRequestDto request)
         {
+            if (!TryGetUserId(out Guid CreatorId))
+                return Unauthorized();
+
             var result = await mediator.Send
             (new CreateTaskCommand(
                 request.name,
@@ -102,7 +110,7 @@ namespace Tasker.Api.Controllers
             return result.Match(
                 task => CreatedAtAction(
                     nameof(GetProjectTasks),
-                    new { projectId = projectId, userId = creatorId },
+                    new { projectId = projectId, userId = CreatorId },
                     new CreateTaskResponseDto(
                         task.Id,
                         task.Name,
@@ -117,11 +125,14 @@ namespace Tasker.Api.Controllers
 
         #region Delete
 
-        [HttpDelete("{Id}")]
-        public async Task<IActionResult> Delete([FromRoute] Guid Id)
+        [HttpDelete]
+        public async Task<IActionResult> Delete()
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new DeleteTaskCommand(Id));
+                (new DeleteTaskCommand(UserId));
 
             return result.Match(
                 _ => Ok(), Problem);

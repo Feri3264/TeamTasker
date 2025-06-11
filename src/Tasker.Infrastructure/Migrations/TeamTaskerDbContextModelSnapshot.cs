@@ -17,7 +17,7 @@ namespace Tasker.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.0")
+                .HasAnnotation("ProductVersion", "9.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -135,7 +135,7 @@ namespace Tasker.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("Deadline")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -235,6 +235,13 @@ namespace Tasker.Infrastructure.Migrations
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("character varying(150)");
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("TokenExpire")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("_taskIds")
                         .IsRequired()

@@ -17,6 +17,8 @@ internal class UserConfig : IEntityTypeConfiguration<UserModel>
         builder.Property(u => u.Email).HasMaxLength(150).IsRequired();
         builder.Property(u => u.Password).HasMaxLength(150).IsRequired();
         builder.Property(u => u.IsDelete).IsRequired();
+        builder.Property(u => u.RefreshToken).IsRequired();
+
 
         //lists
         builder.Property(typeof(List<Guid>), "_taskIds")

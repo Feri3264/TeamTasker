@@ -1,5 +1,7 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using Tasker.Application.Session.Command.ChangeName;
 using Tasker.Application.Session.Command.Create;
 using Tasker.Application.Session.Command.Delete;
@@ -9,17 +11,21 @@ using Tasker.Contracts.Session.MySessions;
 
 namespace Tasker.Api.Controllers
 {
+    [Authorize]
     [Route("/api/session")]
     public class SessionController
         (IMediator mediator) : ApiController
     {
         #region Show Sessions By User
 
-        [HttpGet("{userId:guid}")]
-        public async Task<IActionResult> MySessions([FromRoute] Guid userId)
+        [HttpGet]
+        public async Task<IActionResult> MySessions()
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new GetMySessionsQuery(userId));
+                (new GetMySessionsQuery(UserId));
 
             IEnumerable<MySessionsResponseDto> sessions =
                 new List<MySessionsResponseDto>();
@@ -41,17 +47,18 @@ namespace Tasker.Api.Controllers
 
         #region Create
 
-        [HttpPost("{userId:guid}")]
-        public async Task<IActionResult> Create(
-            [FromRoute] Guid userId,
-            [FromBody] CreateSessionRequestDto request)
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateSessionRequestDto request)
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new CreateSessionCommand(request.name, userId));
+                (new CreateSessionCommand(request.name, UserId));
 
             return result.Match(session => CreatedAtAction(
                 nameof(MySessions),
-                new { userId = userId },
+                new { userId = UserId },
                 new CreateSessionResponseDto(
                     session.Id,
                     session.Name,

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tasker.Application.TeamMember.Command.Create;
 using Tasker.Application.TeamMember.Command.Delete;
@@ -8,6 +9,7 @@ using Tasker.Contracts.TeamMember.GetTeamMembers;
 
 namespace Tasker.Api.Controllers
 {
+    [Authorize]
     [Route("/api/team")]
     public class TeamMemberController
         (IMediator mediator) : ApiController

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tasker.Application.ProjectMember.Command.Create;
 using Tasker.Application.ProjectMember.Command.Delete;
@@ -8,6 +9,7 @@ using Tasker.Contracts.ProjectMember.GetProjectMembers;
 
 namespace Tasker.Api.Controllers
 {
+    [Authorize]
     [Route("/api/project")]
     public class ProjectMemberController
         (IMediator mediator) : ApiController

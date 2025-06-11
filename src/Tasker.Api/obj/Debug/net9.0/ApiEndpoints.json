@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Tasker.Api.Controllers.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/auth/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Tasker.Contracts.Auth.RefreshToken.RefreshTokenRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Tasker.Api.Controllers.ProjectController",
     "Method": "Delete",
     "RelativePath": "api/project/{Id}",
@@ -96,9 +112,9 @@
   },
   {
     "ContainingType": "Tasker.Api.Controllers.ProjectController",
-    "Method": "Create",
-    "RelativePath": "api/project/{teamId}/{creatorId}",
-    "HttpMethod": "POST",
+    "Method": "GetTeamProjects",
+    "RelativePath": "api/project/{teamId}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -106,9 +122,20 @@
         "Name": "teamId",
         "Type": "System.Guid",
         "IsRequired": true
-      },
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tasker.Api.Controllers.ProjectController",
+    "Method": "Create",
+    "RelativePath": "api/project/{teamId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "creatorId",
+        "Name": "teamId",
         "Type": "System.Guid",
         "IsRequired": true
       },
@@ -121,21 +148,26 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Tasker.Api.Controllers.ProjectController",
-    "Method": "GetTeamProjects",
-    "RelativePath": "api/project/{teamId}/{userId}",
+    "ContainingType": "Tasker.Api.Controllers.SessionController",
+    "Method": "MySessions",
+    "RelativePath": "api/session",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tasker.Api.Controllers.SessionController",
+    "Method": "Create",
+    "RelativePath": "api/session",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "teamId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "userId",
-        "Type": "System.Guid",
+        "Name": "request",
+        "Type": "Tasker.Contracts.Session.Create.CreateSessionRequestDto",
         "IsRequired": true
       }
     ],
@@ -237,63 +269,20 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Tasker.Api.Controllers.SessionController",
-    "Method": "MySessions",
-    "RelativePath": "api/session/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Tasker.Api.Controllers.SessionController",
-    "Method": "Create",
-    "RelativePath": "api/session/{userId}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Tasker.Contracts.Session.Create.CreateSessionRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "Tasker.Api.Controllers.TaskController",
     "Method": "Delete",
-    "RelativePath": "api/task/{Id}",
+    "RelativePath": "api/task",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
     "ContainingType": "Tasker.Api.Controllers.TaskController",
-    "Method": "Create",
-    "RelativePath": "api/task/{projectId}/{creatorId}",
-    "HttpMethod": "POST",
+    "Method": "GetProjectTasks",
+    "RelativePath": "api/task/{projectId}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -301,36 +290,26 @@
         "Name": "projectId",
         "Type": "System.Guid",
         "IsRequired": true
-      },
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tasker.Api.Controllers.TaskController",
+    "Method": "Create",
+    "RelativePath": "api/task/{projectId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "creatorId",
+        "Name": "projectId",
         "Type": "System.Guid",
         "IsRequired": true
       },
       {
         "Name": "request",
         "Type": "Tasker.Contracts.Task.Create.CreateTaskRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Tasker.Api.Controllers.TaskController",
-    "Method": "GetProjectTasks",
-    "RelativePath": "api/task/{projectId}/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "projectId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "userId",
-        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -423,17 +402,11 @@
   {
     "ContainingType": "Tasker.Api.Controllers.TaskController",
     "Method": "GetUserTasks",
-    "RelativePath": "api/task/user/{userId}",
+    "RelativePath": "api/task/user",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -475,8 +448,24 @@
   },
   {
     "ContainingType": "Tasker.Api.Controllers.TeamController",
+    "Method": "GetSessionTeams",
+    "RelativePath": "api/team/{sessionId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sessionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tasker.Api.Controllers.TeamController",
     "Method": "Create",
-    "RelativePath": "api/team/{sessionId}/{creatorId}",
+    "RelativePath": "api/team/{sessionId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -487,34 +476,8 @@
         "IsRequired": true
       },
       {
-        "Name": "creatorId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
         "Name": "request",
         "Type": "Tasker.Contracts.Team.Create.CreateTeamRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Tasker.Api.Controllers.TeamController",
-    "Method": "GetSessionTeams",
-    "RelativePath": "api/team/{sessionId}/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "sessionId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "userId",
-        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -580,6 +543,42 @@
   },
   {
     "ContainingType": "Tasker.Api.Controllers.UserController",
+    "Method": "ShowProfile",
+    "RelativePath": "api/user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tasker.Api.Controllers.UserController",
+    "Method": "Delete",
+    "RelativePath": "api/user",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tasker.Api.Controllers.UserController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/user",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Tasker.Contracts.User.ChangePassword.UserChangePasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tasker.Api.Controllers.UserController",
     "Method": "SearchByEmail",
     "RelativePath": "api/user/{email}",
     "HttpMethod": "GET",
@@ -596,70 +595,12 @@
   },
   {
     "ContainingType": "Tasker.Api.Controllers.UserController",
-    "Method": "ShowProfile",
-    "RelativePath": "api/user/{Id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Tasker.Api.Controllers.UserController",
-    "Method": "Delete",
-    "RelativePath": "api/user/{Id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Tasker.Api.Controllers.UserController",
-    "Method": "ChangePassword",
-    "RelativePath": "api/user/{Id}",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "request",
-        "Type": "Tasker.Contracts.User.ChangePassword.UserChangePasswordRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Tasker.Api.Controllers.UserController",
     "Method": "ChangeName",
-    "RelativePath": "api/user/{Id}/{name}",
+    "RelativePath": "api/user/{name}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "Id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
       {
         "Name": "name",
         "Type": "System.String",

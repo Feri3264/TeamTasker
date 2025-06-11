@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tasker.Application.Project.Command.ChangeName;
 using Tasker.Application.Project.Command.Create;
@@ -9,6 +10,7 @@ using Tasker.Contracts.Project.GetTeamProjects;
 
 namespace Tasker.Api.Controllers
 {
+    [Authorize]
     [Route("/api/project")]
     public class ProjectController
         (IMediator mediator) : ApiController
@@ -16,13 +18,14 @@ namespace Tasker.Api.Controllers
 
         #region Show Projects By Team
 
-        [HttpGet("{teamId}/{userId}")]
-        public async Task<IActionResult> GetTeamProjects(
-            [FromRoute] Guid teamId,
-            [FromRoute] Guid userId)
+        [HttpGet("{teamId}")]
+        public async Task<IActionResult> GetTeamProjects([FromRoute] Guid teamId)
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new GetTeamProjectsQuery(teamId, userId));
+                (new GetTeamProjectsQuery(teamId, UserId));
 
             IEnumerable<GetTeamProjectsResponseDto> projects =
                 new List<GetTeamProjectsResponseDto>();
@@ -43,19 +46,21 @@ namespace Tasker.Api.Controllers
 
         #region Create
 
-        [HttpPost("{teamId}/{creatorId}")]
+        [HttpPost("{teamId}")]
         public async Task<IActionResult> Create(
             [FromRoute] Guid teamId,
-            [FromRoute] Guid creatorId,
             [FromBody] CreateProjectRequestDto request)
         {
+            if (!TryGetUserId(out Guid CreatorId))
+                return Unauthorized();
+
             var result = await mediator.Send
                 (new CreateProjectCommand(request.name, teamId, request.leadId));
 
             return result.Match(
                 project => CreatedAtAction(
                     nameof(GetTeamProjects),
-                    new { teamId = teamId, userId = creatorId },
+                    new { teamId = teamId, userId = CreatorId },
                     new CreateProjectResponseDto(
                         project.Id,
                         project.Name,

@@ -5,4 +5,6 @@ public record RegisterResponseDto
         string name,
         string email,
         string password,
+        string refreshToken,
+        string token,
         bool isDelete);

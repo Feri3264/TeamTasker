@@ -5,7 +5,38 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/project/{teamId}/{userId}": {
+    "/api/auth/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/project/{teamId}": {
       "get": {
         "tags": [
           "Project"
@@ -19,15 +50,6 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
           }
         ],
         "responses": {
@@ -35,9 +57,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/project/{teamId}/{creatorId}": {
+      },
       "post": {
         "tags": [
           "Project"
@@ -45,15 +65,6 @@
         "parameters": [
           {
             "name": "teamId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "creatorId",
             "in": "path",
             "required": true,
             "schema": {
@@ -237,21 +248,10 @@
         }
       }
     },
-    "/api/session/{userId}": {
+    "/api/session": {
       "get": {
         "tags": [
           "Session"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -262,17 +262,6 @@
       "post": {
         "tags": [
           "Session"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -449,21 +438,10 @@
         }
       }
     },
-    "/api/task/user/{userId}": {
+    "/api/task/user": {
       "get": {
         "tags": [
           "Task"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -472,7 +450,7 @@
         }
       }
     },
-    "/api/task/{projectId}/{userId}": {
+    "/api/task/{projectId}": {
       "get": {
         "tags": [
           "Task"
@@ -486,15 +464,6 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
           }
         ],
         "responses": {
@@ -502,9 +471,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/task/{projectId}/{creatorId}": {
+      },
       "post": {
         "tags": [
           "Task"
@@ -512,15 +479,6 @@
         "parameters": [
           {
             "name": "projectId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "creatorId",
             "in": "path",
             "required": true,
             "schema": {
@@ -555,21 +513,10 @@
         }
       }
     },
-    "/api/task/{Id}": {
+    "/api/task": {
       "delete": {
         "tags": [
           "Task"
-        ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -735,7 +682,7 @@
         }
       }
     },
-    "/api/team/{sessionId}/{userId}": {
+    "/api/team/{sessionId}": {
       "get": {
         "tags": [
           "Team"
@@ -749,15 +696,6 @@
               "type": "string",
               "format": "uuid"
             }
-          },
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
           }
         ],
         "responses": {
@@ -765,9 +703,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/team/{sessionId}/{creatorId}": {
+      },
       "post": {
         "tags": [
           "Team"
@@ -775,15 +711,6 @@
         "parameters": [
           {
             "name": "sessionId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "creatorId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1029,21 +956,10 @@
         }
       }
     },
-    "/api/user/{Id}": {
+    "/api/user": {
       "get": {
         "tags": [
           "User"
-        ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -1055,17 +971,6 @@
         "tags": [
           "User"
         ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -1075,17 +980,6 @@
       "patch": {
         "tags": [
           "User"
-        ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -1135,21 +1029,12 @@
         }
       }
     },
-    "/api/user/{Id}/{name}": {
+    "/api/user/{name}": {
       "patch": {
         "tags": [
           "User"
         ],
         "parameters": [
-          {
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
           {
             "name": "name",
             "in": "path",
@@ -1275,6 +1160,16 @@
             "nullable": true
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshTokenRequestDto": {
+        "type": "object",
+        "properties": {
+          "refreshToken": {
             "type": "string",
             "nullable": true
           }

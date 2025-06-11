@@ -1,12 +1,31 @@
 ﻿using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Security.Claims;
 
 namespace Tasker.Api.Controllers
 {
     [ApiController]
     public class ApiController : ControllerBase
     {
+
+        #region UserId
+
+        protected bool TryGetUserId(out Guid UserId)
+        {
+            UserId = Guid.Empty;
+
+            var claim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (claim != null && Guid.TryParse(claim.Value, out var id))
+            {
+                UserId = id;
+                return true;
+            }
+
+            return false;
+        }
+
+        #endregion
         protected IActionResult Problem(List<Error> errors)
         {
             if (errors.Count is 0)

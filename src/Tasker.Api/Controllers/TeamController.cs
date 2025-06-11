@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tasker.Application.Team.Command.ChangeName;
 using Tasker.Application.Team.Command.Create;
@@ -9,6 +10,7 @@ using Tasker.Contracts.Team.GetSessionTeams;
 
 namespace Tasker.Api.Controllers
 {
+    [Authorize]
     [Route("/api/team")]
     public class TeamController
         (IMediator mediator) : ApiController
@@ -16,13 +18,14 @@ namespace Tasker.Api.Controllers
 
         #region Show Teams By Session
 
-        [HttpGet("{sessionId:guid}/{userId:guid}")]
-        public async Task<IActionResult> GetSessionTeams(
-            [FromRoute] Guid sessionId,
-            [FromRoute] Guid userId)
+        [HttpGet("{sessionId:guid}")]
+        public async Task<IActionResult> GetSessionTeams([FromRoute] Guid sessionId)
         {
+            if (!TryGetUserId(out Guid UserId))
+                return Unauthorized();
+
             var result = await mediator.Send
-                (new GetSessionTeamsQuery(sessionId, userId));
+                (new GetSessionTeamsQuery(sessionId, UserId));
 
             IEnumerable<GetSessionTeamsResponseDto> teams =
                 new List<GetSessionTeamsResponseDto>();
@@ -43,19 +46,21 @@ namespace Tasker.Api.Controllers
 
         #region Create
 
-        [HttpPost("{sessionId:guid}/{creatorId:guid}")]
+        [HttpPost("{sessionId:guid}")]
         public async Task<IActionResult> Create(
             [FromRoute] Guid sessionId,
-            [FromRoute] Guid creatorId,
             [FromBody] CreateTeamRequestDto request)
         {
+            if (!TryGetUserId(out Guid CreatorId))
+                return Unauthorized();
+
             var result = await mediator.Send
                 (new CreateTeamCommand(request.name, sessionId, request.leadId));
 
             return result.Match(
                 team => CreatedAtAction(
                     nameof(GetSessionTeams),
-                    new { sessionId = sessionId, userId = creatorId },
+                    new { sessionId = sessionId, userId = CreatorId },
                     new CreateTeamResponseDto(
                         team.Id,
                         team.Name,
