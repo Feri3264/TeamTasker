@@ -1,0 +1,2717 @@
+{
+	"info": {
+		"_postman_id": "82b6eccc-7ee8-475a-92fd-074a22652e98",
+		"name": "TeamTasker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42956995"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "RefreshToken",
+							"item": [
+								{
+									"name": "/api/auth/refresh-token",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"refreshToken\": \"\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/auth/refresh-token",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"auth",
+												"refresh-token"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"refreshToken\": \"in pariatur anim\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/auth/refresh-token",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"auth",
+														"refresh-token"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "project",
+					"item": [
+						{
+							"name": "GetTeamProjects",
+							"item": [
+								{
+									"name": "/api/project/:teamId",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/project/:teamId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"project",
+												":teamId"
+											],
+											"variable": [
+												{
+													"key": "teamId",
+													"value": "",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/project/:teamId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"project",
+														":teamId"
+													],
+													"variable": [
+														{
+															"key": "teamId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "CreateProject",
+							"item": [
+								{
+									"name": "/api/project/:teamId",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"disabled": true
+											},
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"\",\n  \"leadId\": \"\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/project/:teamId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"project",
+												":teamId"
+											],
+											"variable": [
+												{
+													"key": "teamId",
+													"value": "",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"ut ipsum\",\n  \"leadId\": \"urn:uuid:a656a523-adf2-d1f8-fb32-53406e75d25b\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/project/:teamId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"project",
+														":teamId"
+													],
+													"variable": [
+														{
+															"key": "teamId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "DeleteProject",
+							"item": [
+								{
+									"name": "/api/project/:Id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/project/:Id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"project",
+												":Id"
+											],
+											"variable": [
+												{
+													"key": "Id",
+													"value": "",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/project/:Id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"project",
+														":Id"
+													],
+													"variable": [
+														{
+															"key": "Id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ChangeProjectName",
+							"item": [
+								{
+									"name": "/api/project/:projectId/:name",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/project/:projectId/:name",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"project",
+												":projectId",
+												":name"
+											],
+											"variable": [
+												{
+													"key": "projectId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												},
+												{
+													"key": "name",
+													"value": "ex laborum sed do exercitation",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/project/:projectId/:name",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"project",
+														":projectId",
+														":name"
+													],
+													"variable": [
+														{
+															"key": "projectId"
+														},
+														{
+															"key": "name"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Members",
+							"item": [
+								{
+									"name": "/api/project/:projectId/member",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/project/:projectId/member",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"project",
+												":projectId",
+												"member"
+											],
+											"variable": [
+												{
+													"key": "projectId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/project/:projectId/member",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"project",
+														":projectId",
+														"member"
+													],
+													"variable": [
+														{
+															"key": "projectId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/project/:projectId/member",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"urn:uuid:492931a9-e14b-34c5-978b-1167403f5561\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/project/:projectId/member",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"project",
+												":projectId",
+												"member"
+											],
+											"variable": [
+												{
+													"key": "projectId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"urn:uuid:492931a9-e14b-34c5-978b-1167403f5561\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/project/:projectId/member",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"project",
+														":projectId",
+														"member"
+													],
+													"variable": [
+														{
+															"key": "projectId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/project/:projectId/member/:memberId",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/project/:projectId/member/:memberId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"project",
+												":projectId",
+												"member",
+												":memberId"
+											],
+											"variable": [
+												{
+													"key": "projectId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												},
+												{
+													"key": "memberId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/project/:projectId/member/:memberId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"project",
+														":projectId",
+														"member",
+														":memberId"
+													],
+													"variable": [
+														{
+															"key": "projectId"
+														},
+														{
+															"key": "memberId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "session",
+					"item": [
+						{
+							"name": "DeleteSession",
+							"item": [
+								{
+									"name": "/api/session/:Id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/session/:Id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"session",
+												":Id"
+											],
+											"variable": [
+												{
+													"key": "Id",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/session/:Id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"session",
+														":Id"
+													],
+													"variable": [
+														{
+															"key": "Id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetUserSessions",
+							"item": [
+								{
+									"name": "/api/session",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/session",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"session"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/session",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"session"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "CreateSession",
+							"item": [
+								{
+									"name": "/api/session",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"disabled": true
+											},
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/session",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"session"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"enim do irure culpa est\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/session",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"session"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ChangeSessionName",
+							"item": [
+								{
+									"name": "/api/session/:sessionId/:name",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/session/:sessionId/:name",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"session",
+												":sessionId",
+												":name"
+											],
+											"variable": [
+												{
+													"key": "sessionId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												},
+												{
+													"key": "name",
+													"value": "ex laborum sed do exercitation",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/session/:sessionId/:name",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"session",
+														":sessionId",
+														":name"
+													],
+													"variable": [
+														{
+															"key": "sessionId"
+														},
+														{
+															"key": "name"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Members",
+							"item": [
+								{
+									"name": "/api/session/:sessionId/member",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"urn:uuid:492931a9-e14b-34c5-978b-1167403f5561\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/session/:sessionId/member",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"session",
+												":sessionId",
+												"member"
+											],
+											"variable": [
+												{
+													"key": "sessionId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"urn:uuid:492931a9-e14b-34c5-978b-1167403f5561\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/session/:sessionId/member",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"session",
+														":sessionId",
+														"member"
+													],
+													"variable": [
+														{
+															"key": "sessionId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/session/:sessionId/member",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/session/:sessionId/member",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"session",
+												":sessionId",
+												"member"
+											],
+											"variable": [
+												{
+													"key": "sessionId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/session/:sessionId/member",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"session",
+														":sessionId",
+														"member"
+													],
+													"variable": [
+														{
+															"key": "sessionId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/session/:sessionId/member/:memberId",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/session/:sessionId/member/:memberId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"session",
+												":sessionId",
+												"member",
+												":memberId"
+											],
+											"variable": [
+												{
+													"key": "sessionId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												},
+												{
+													"key": "memberId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/session/:sessionId/member/:memberId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"session",
+														":sessionId",
+														"member",
+														":memberId"
+													],
+													"variable": [
+														{
+															"key": "sessionId"
+														},
+														{
+															"key": "memberId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "task",
+					"item": [
+						{
+							"name": "GetUserTasks",
+							"item": [
+								{
+									"name": "/api/task/user",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/task/user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"task",
+												"user"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/task/user",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"task",
+														"user"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "DeleteTask",
+							"item": [
+								{
+									"name": "/api/task",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/task",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"task"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/task",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"task"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetProjectTasks",
+							"item": [
+								{
+									"name": "/api/task/:projectId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/task/:projectId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"task",
+												":projectId"
+											],
+											"variable": [
+												{
+													"key": "projectId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/task/:projectId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"task",
+														":projectId"
+													],
+													"variable": [
+														{
+															"key": "projectId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "CreateTask",
+							"item": [
+								{
+									"name": "/api/task/:projectId",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"minim commodo magna\",\n  \"status\": \"magna deserunt\",\n  \"priority\": \"dolore magna\",\n  \"assignedMemberId\": \"urn:uuid:8985cd8d-5a8f-7ff7-9178-3c07b5589a15\",\n  \"projectId\": \"2b3e8dac-3964-6b48-f39d-5519f218605f\",\n  \"deadline\": \"1981-04-30T10:53:51.467Z\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/task/:projectId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"task",
+												":projectId"
+											],
+											"variable": [
+												{
+													"key": "projectId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"minim commodo magna\",\n  \"status\": \"magna deserunt\",\n  \"priority\": \"dolore magna\",\n  \"assignedMemberId\": \"urn:uuid:8985cd8d-5a8f-7ff7-9178-3c07b5589a15\",\n  \"projectId\": \"2b3e8dac-3964-6b48-f39d-5519f218605f\",\n  \"deadline\": \"1981-04-30T10:53:51.467Z\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/task/:projectId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"task",
+														":projectId"
+													],
+													"variable": [
+														{
+															"key": "projectId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ChangeMember",
+							"item": [
+								{
+									"name": "/api/task/:taskId/member",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"urn:uuid:492931a9-e14b-34c5-978b-1167403f5561\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/task/:taskId/member",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"task",
+												":taskId",
+												"member"
+											],
+											"variable": [
+												{
+													"key": "taskId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"urn:uuid:492931a9-e14b-34c5-978b-1167403f5561\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/task/:taskId/member",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"task",
+														":taskId",
+														"member"
+													],
+													"variable": [
+														{
+															"key": "taskId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ChangeTaskName",
+							"item": [
+								{
+									"name": "/api/task/:taskId/:name",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/task/:taskId/:name",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"task",
+												":taskId",
+												":name"
+											],
+											"variable": [
+												{
+													"key": "taskId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												},
+												{
+													"key": "name",
+													"value": "ex laborum sed do exercitation",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/task/:taskId/:name",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"task",
+														":taskId",
+														":name"
+													],
+													"variable": [
+														{
+															"key": "taskId"
+														},
+														{
+															"key": "name"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ChangeTaskStatus",
+							"item": [
+								{
+									"name": "/api/task/:taskId/status",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"status\": \"adipisicing anim dolore\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/task/:taskId/status",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"task",
+												":taskId",
+												"status"
+											],
+											"variable": [
+												{
+													"key": "taskId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"status\": \"adipisicing anim dolore\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/task/:taskId/status",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"task",
+														":taskId",
+														"status"
+													],
+													"variable": [
+														{
+															"key": "taskId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ChangeTaskPriority",
+							"item": [
+								{
+									"name": "/api/task/:taskId/priority",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"priority\": \"ipsum nisi\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/task/:taskId/priority",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"task",
+												":taskId",
+												"priority"
+											],
+											"variable": [
+												{
+													"key": "taskId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"priority\": \"ipsum nisi\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/task/:taskId/priority",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"task",
+														":taskId",
+														"priority"
+													],
+													"variable": [
+														{
+															"key": "taskId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "team",
+					"item": [
+						{
+							"name": "GetSessionTeams",
+							"item": [
+								{
+									"name": "/api/team/:sessionId",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4NzllZTg5OS0zZmZkLTQxMmItOTIwMC0zYWY1YWZhODYzODYiLCJlbWFpbCI6ImZhcmlkQGdtYWlsLmNvbSIsImV4cCI6MTc0OTY0NTUzNSwiaXNzIjoiVGVhbVRhc2tlciIsImF1ZCI6ImNsaWVudCJ9.7cXU7_VF-BR1SKecJ4Dayk8qp0EFGwYaEryk8JSl2Bw",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/team/:sessionId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"team",
+												":sessionId"
+											],
+											"variable": [
+												{
+													"key": "sessionId",
+													"value": "",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/team/:sessionId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"team",
+														":sessionId"
+													],
+													"variable": [
+														{
+															"key": "sessionId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "CreateTeam",
+							"item": [
+								{
+									"name": "/api/team/:sessionId",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4NzllZTg5OS0zZmZkLTQxMmItOTIwMC0zYWY1YWZhODYzODYiLCJlbWFpbCI6ImZhcmlkQGdtYWlsLmNvbSIsImV4cCI6MTc0OTY0NTUzNSwiaXNzIjoiVGVhbVRhc2tlciIsImF1ZCI6ImNsaWVudCJ9.7cXU7_VF-BR1SKecJ4Dayk8qp0EFGwYaEryk8JSl2Bw",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"\",\n  \"leadId\": \"\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/team/:sessionId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"team",
+												":sessionId"
+											],
+											"variable": [
+												{
+													"key": "sessionId",
+													"value": "",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"ut ipsum\",\n  \"leadId\": \"urn:uuid:a656a523-adf2-d1f8-fb32-53406e75d25b\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/team/:sessionId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"team",
+														":sessionId"
+													],
+													"variable": [
+														{
+															"key": "sessionId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Members",
+							"item": [
+								{
+									"name": "/api/team/:teamId/member",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"urn:uuid:492931a9-e14b-34c5-978b-1167403f5561\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/team/:teamId/member",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"team",
+												":teamId",
+												"member"
+											],
+											"variable": [
+												{
+													"key": "teamId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"urn:uuid:492931a9-e14b-34c5-978b-1167403f5561\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/team/:teamId/member",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"team",
+														":teamId",
+														"member"
+													],
+													"variable": [
+														{
+															"key": "teamId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/team/:teamId/member",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/team/:teamId/member",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"team",
+												":teamId",
+												"member"
+											],
+											"variable": [
+												{
+													"key": "teamId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/team/:teamId/member",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"team",
+														":teamId",
+														"member"
+													],
+													"variable": [
+														{
+															"key": "teamId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/team/:teamId/member/:memberId",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/team/:teamId/member/:memberId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"team",
+												":teamId",
+												"member",
+												":memberId"
+											],
+											"variable": [
+												{
+													"key": "teamId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												},
+												{
+													"key": "memberId",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/team/:teamId/member/:memberId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"team",
+														":teamId",
+														"member",
+														":memberId"
+													],
+													"variable": [
+														{
+															"key": "teamId"
+														},
+														{
+															"key": "memberId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "DeleteTeam",
+							"item": [
+								{
+									"name": "/api/team/:Id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/team/:Id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"team",
+												":Id"
+											],
+											"variable": [
+												{
+													"key": "Id",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/team/:Id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"team",
+														":Id"
+													],
+													"variable": [
+														{
+															"key": "Id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ChangeTeamName",
+							"item": [
+								{
+									"name": "/api/team/:Id/:name",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/team/:Id/:name",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"team",
+												":Id",
+												":name"
+											],
+											"variable": [
+												{
+													"key": "Id",
+													"value": "urn:uuid:a52449f0-e92f-1889-8544-31706ac8b317",
+													"description": "(Required) "
+												},
+												{
+													"key": "name",
+													"value": "ex laborum sed do exercitation",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/team/:Id/:name",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"team",
+														":Id",
+														":name"
+													],
+													"variable": [
+														{
+															"key": "Id"
+														},
+														{
+															"key": "name"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "Register",
+							"item": [
+								{
+									"name": "/api/user/register",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"\",\n  \"email\": \"\",\n  \"password\": \"\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/register",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"register"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"cupidatat laboris\",\n  \"email\": \"Ut deserunt\",\n  \"password\": \"dol\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/register",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"register"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Login",
+							"item": [
+								{
+									"name": "/api/user/login",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"\",\n  \"password\": \"\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												"login"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"nisi labore voluptate in\",\n  \"password\": \"dolor fugiat Ut\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														"login"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "FindUserByEmail",
+							"item": [
+								{
+									"name": "/api/user/:email",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/:email",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												":email"
+											],
+											"variable": [
+												{
+													"key": "email",
+													"value": "ex laborum sed do exercitation",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/:email",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														":email"
+													],
+													"variable": [
+														{
+															"key": "email"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ChangeYourName",
+							"item": [
+								{
+									"name": "/api/user/:name",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user/:name",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user",
+												":name"
+											],
+											"variable": [
+												{
+													"key": "name",
+													"value": "",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user/:name",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user",
+														":name"
+													],
+													"variable": [
+														{
+															"key": "name"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ShowProfile",
+							"item": [
+								{
+									"name": "/api/user",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "DeleteAccount",
+							"item": [
+								{
+									"name": "/api/user",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/user",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ChangePassword",
+							"item": [
+								{
+									"name": "/api/user",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"oldPassword\": \"\",\n  \"newPassword\": \"\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/user",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"user"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"oldPassword\": \"elit non id reprehenderit\",\n  \"newPassword\": \"occaecat commodo\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/user",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"user"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
